@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: quick-efs-demo
+  name: hexcamp-dnsfun
   namespace: quick
 spec:
   template:
@@ -12,11 +12,4 @@ spec:
       containerConcurrency: 0
       timeoutSeconds: 120
       containers:
-        - image: ghcr.io/knative/helloworld-go:latest
-          volumeMounts:
-          - name: persistent-storage
-            mountPath: /data
-      volumes:
-      - name: persistent-storage
-        persistentVolumeClaim:
-          claimName: quick-efs-claim
+        - image: ghcr.io/hexcamp/hexcamp-dns:latest@sha256:ec5b50cf759f8b87945508c0d6eb3f79cbca76a0795f97e1c1e0c4c9e7102a00
