@@ -2,7 +2,7 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: hexcamp-dnsfun
-  namespace: quick
+  namespace: default
 spec:
   template:
     metadata:
