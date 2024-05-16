@@ -1,7 +1,7 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: hexcamp-dnsfun
+  name: hexcamp-coredns-demo-doh2
   namespace: default
 spec:
   template:
@@ -12,4 +12,9 @@ spec:
       containerConcurrency: 0
       timeoutSeconds: 120
       containers:
-        - image: ghcr.io/hexcamp/hexcamp-dns:latest@sha256:ec5b50cf759f8b87945508c0d6eb3f79cbca76a0795f97e1c1e0c4c9e7102a00
+        - image: coredns/coredns:1.11.1
+          command: [ bash, -c ]
+          args:
+            - |
+              set -e
+              while true; do sleep 50; done
