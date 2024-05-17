@@ -1,4 +1,5 @@
 resources:
+- certs.yaml
 - efs-sc-hexcamp-coredns.yaml
 - pvc-coredns-test-efs-claim.yaml  
 - coredns-demo-doh2.yaml
