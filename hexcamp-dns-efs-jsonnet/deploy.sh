@@ -1,10 +1,10 @@
 #! /bin/bash
 
-. ../../../.env
+. ../.env
 
 echo GITHUB_PAT $GITHUB_PAT
 
-VOLUME_HANDLE=$(cd ../terraform; terraform output efs-hexcamp-coredns | sed 's,",,g')
+VOLUME_HANDLE=$(cd /Users/jim/hexcamp-jpimac/localnet-farm/localnet-farm/prototypes/localnet-farm-5/terraform; terraform output efs-hexcamp-coredns | sed 's,",,g')
 
 argocd repo add https://github.com/jimpick/localnet-farm.git --username jimpick --password $GITHUB_PAT --upsert
 

@@ -17,7 +17,7 @@ function (
       "accessModes": [
         "ReadWriteOnce"
       ],
-      "storageClassName": "efs-sc",
+      "storageClassName": "efs-sc-hexcamp-coredns",
       "persistentVolumeReclaimPolicy": "Retain",
       "csi": {
         "driver": "efs.csi.aws.com",
