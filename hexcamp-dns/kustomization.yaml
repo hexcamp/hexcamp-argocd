@@ -1,4 +1,5 @@
 resources:
+- pvc-coredns-test-efs-claim.yaml  
 - coredns-demo-doh2.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization

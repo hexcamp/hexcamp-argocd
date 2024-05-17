@@ -18,3 +18,10 @@ spec:
             - |
               set -e
               while true; do sleep 50; done
+          volumeMounts:
+          - name: persistent-storage
+            mountPath: /data
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: coredns-test-efs-claim
