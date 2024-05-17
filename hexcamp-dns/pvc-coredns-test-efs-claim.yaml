@@ -7,7 +7,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: efs-sc
+  storageClassName: efs-sc-hexcamp-coredns
   resources:
     requests:
       storage: 5Gi
