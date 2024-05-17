@@ -17,7 +17,8 @@ spec:
           args:
             - |
               set -e
-              /data/coredns-data/run-doh2.sh
+              cd /data/coredns-data
+              ./run-doh2.sh
               #while true; do sleep 50; done
           volumeMounts:
           - name: persistent-storage
