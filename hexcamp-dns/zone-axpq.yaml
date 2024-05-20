@@ -44,7 +44,7 @@ spec:
       containerConcurrency: 0
       timeoutSeconds: 120
       containers:
-        - image: ghcr.io/hexcamp/hexcamp-coredns-image@sha256:45d42f2cc6ddcf10050d275e96cb28fe9bdc4f6908c088f008db5f4f82b6ab8f
+        - image: ghcr.io/hexcamp/hexcamp-coredns-image@sha256:9b9fce0f4e98167ed1b62ccc0db7bc74b1d834edb0c5cc6a05159cbbfbf35602
           command: [ bash, -c ]
           args:
             - |
