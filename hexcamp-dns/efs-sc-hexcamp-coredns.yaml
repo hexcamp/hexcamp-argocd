@@ -3,3 +3,4 @@ kind: StorageClass
 metadata:
   name: efs-sc-hexcamp-coredns
 provisioner: efs.csi.aws.com
+reclaimPolicy: Retain
