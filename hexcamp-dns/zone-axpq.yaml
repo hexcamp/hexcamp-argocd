@@ -17,6 +17,19 @@ spec:
     name: letsencrypt-prod-dns
     kind: ClusterIssuer
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: coredns-test-efs-claim
+  namespace: axpq
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: efs-sc-hexcamp-coredns
+  resources:
+    requests:
+      storage: 5Gi
+---
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
@@ -54,6 +67,7 @@ spec:
       - name: persistent-storage
         persistentVolumeClaim:
           claimName: coredns-test-efs-claim
+          #readOnly: true
 ---
 apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
