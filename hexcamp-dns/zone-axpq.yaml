@@ -1,8 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: axpq
+---
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: hexcamp-coredns-demo-doh2
-  namespace: default
+  name: hexcamp-zone-h3-46
+  namespace: axpq
 spec:
   template:
     metadata:
@@ -12,13 +17,13 @@ spec:
       containerConcurrency: 0
       timeoutSeconds: 120
       containers:
-        - image: ghcr.io/hexcamp/hexcamp-coredns-image@sha256:807ecabf62241e52836f378f4165af75524e15f19334aadb236c6ea4e7dce3fd
+        - image: ghcr.io/hexcamp/hexcamp-coredns-image@sha256:45d42f2cc6ddcf10050d275e96cb28fe9bdc4f6908c088f008db5f4f82b6ab8f
           command: [ bash, -c ]
           args:
             - |
               set -e
-              cd /data/coredns-data
-              ./run-doh2.sh
+              cd /data/coredns-data/axpq/h3/46
+              /coredns -conf Corefile
               #while true; do sleep 50; done
           volumeMounts:
           - name: persistent-storage
@@ -35,3 +40,17 @@ spec:
       - name: persistent-storage
         persistentVolumeClaim:
           claimName: coredns-test-efs-claim
+---
+apiVersion: serving.knative.dev/v1beta1
+kind: DomainMapping
+metadata:
+  name: test-doh2.infra.hex.camp
+  namespace: default
+spec:
+  ref:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: hexcamp-zone-h3-46
+    namespace: axpq
+  tls:
+    secretName: hex-camp-infra-wildcard-cert
