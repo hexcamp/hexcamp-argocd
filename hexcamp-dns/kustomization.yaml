@@ -1,7 +1,6 @@
 resources:
 - certs.yaml
 - efs-sc-hexcamp-coredns.yaml
-- pvc-coredns-test-efs-claim.yaml
 - zone-axpq.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
