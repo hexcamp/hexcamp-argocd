@@ -3,6 +3,20 @@ kind: Namespace
 metadata:
   name: axpq
 ---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hex-camp-infra-wildcard
+  namespace: axpq
+spec:
+  commonName: "*.infra.hex.camp"
+  secretName: hex-camp-infra-wildcard-cert
+  dnsNames:
+    - "*.infra.hex.camp"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+---
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
@@ -45,7 +59,7 @@ apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
 metadata:
   name: test-doh2.infra.hex.camp
-  namespace: default
+  namespace: axpq
 spec:
   ref:
     apiVersion: serving.knative.dev/v1
