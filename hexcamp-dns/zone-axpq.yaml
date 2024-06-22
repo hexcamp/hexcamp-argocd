@@ -17,6 +17,20 @@ spec:
     name: letsencrypt-prod-dns
     kind: ClusterIssuer
 ---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: hex-camp-doh-wildcard
+  namespace: axpq
+spec:
+  commonName: "*.doh.hex.camp"
+  secretName: hex-camp-doh-wildcard-cert
+  dnsNames:
+    - "*.doh.hex.camp"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -74,7 +88,21 @@ spec:
 apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
 metadata:
-  name: test-doh2.infra.hex.camp
+  name: axpq.doh.hex.camp
+  namespace: axpq
+spec:
+  ref:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: hexcamp-zone-h3-46
+    namespace: axpq
+  tls:
+    secretName: hex-camp-doh-wildcard-cert
+---
+apiVersion: serving.knative.dev/v1beta1
+kind: DomainMapping
+metadata:
+  name: axpq.doh.hex.camp
   namespace: axpq
 spec:
   ref:
