@@ -20,13 +20,13 @@ spec:
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: hex-camp-doh-wildcard
+  name: doh-test-hex-camp-wildcard
   namespace: axpq
 spec:
-  commonName: "*.doh.hex.camp"
-  secretName: hex-camp-doh-wildcard-cert
+  commonName: "*.doh.test.hex.camp"
+  secretName: doh-test-hex-camp-wildcard-cert
   dnsNames:
-    - "*.doh.hex.camp"
+    - "*.doh.test.hex.camp"
   issuerRef:
     name: letsencrypt-prod-dns
     kind: ClusterIssuer
@@ -88,7 +88,7 @@ spec:
 apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
 metadata:
-  name: axpq.doh.hex.camp
+  name: axpq.doh.test.hex.camp
   namespace: axpq
 spec:
   ref:
@@ -97,7 +97,7 @@ spec:
     name: hexcamp-zone-h3-46
     namespace: axpq
   tls:
-    secretName: hex-camp-doh-wildcard-cert
+    secretName: doh-test-hex-camp-wildcard-cert
 ---
 apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
