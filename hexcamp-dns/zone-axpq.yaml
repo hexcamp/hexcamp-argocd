@@ -23,10 +23,10 @@ metadata:
   name: doh-test-hex-camp-wildcard
   namespace: axpq
 spec:
-  commonName: "*.doh.test.hex.camp"
+  commonName: "*.doh-test.hex.camp"
   secretName: doh-test-hex-camp-wildcard-cert
   dnsNames:
-    - "*.doh.test.hex.camp"
+    - "*.doh-test.hex.camp"
   issuerRef:
     name: letsencrypt-prod-dns
     kind: ClusterIssuer
@@ -88,7 +88,7 @@ spec:
 apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
 metadata:
-  name: axpq.doh.test.hex.camp
+  name: axpq.doh-test.hex.camp
   namespace: axpq
 spec:
   ref:
