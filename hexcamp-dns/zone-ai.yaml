@@ -49,9 +49,9 @@ spec:
           args:
             - |
               set -e
-              cd /data/coredns-data/ai/h3/23
-              /coredns -conf Corefile
-              #while true; do sleep 50; done
+              #cd /data/coredns-data/ai/h3/23
+              #/coredns -conf Corefile
+              while true; do sleep 50; done
           volumeMounts:
           - name: persistent-storage
             mountPath: /data
