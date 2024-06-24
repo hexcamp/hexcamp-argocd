@@ -50,7 +50,10 @@ spec:
             - |
               set -e
               cd /data/coredns-data/ai/h3/23
-              /coredns -conf Corefile
+              while true; do
+                /coredns -conf Corefile
+                sleep 5
+              done
               #while true; do sleep 50; done
           volumeMounts:
           - name: persistent-storage
