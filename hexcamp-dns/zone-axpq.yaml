@@ -58,13 +58,11 @@ spec:
           ports:
           - containerPort: 80
           readinessProbe:
-            httpGet:
-              path: /ready
-              port: 8181
+            tcpSocket:
+              port: 80
           livenessProbe:
-            httpGet:
-              path: /ready
-              port: 8181
+            tcpSocket:
+              port: 80
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
