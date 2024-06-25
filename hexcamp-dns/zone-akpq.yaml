@@ -66,15 +66,18 @@ spec:
           - name: persistent-storage
             mountPath: /data
           ports:
-          - containerPort: 80
+          - name: doh
+            containerPort: 80
+          - name: liveness-port
+            containerPort: 8181
           readinessProbe:
             httpGet:
               path: /ready
-              port: 8181
+              port: liveness-port
           livenessProbe:
             httpGet:
               path: /ready
-              port: 8181
+              port: liveness-port
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
