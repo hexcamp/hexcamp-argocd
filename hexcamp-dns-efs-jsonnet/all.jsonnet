@@ -82,7 +82,7 @@ function (
       "accessModes": [
         "ReadWriteOnce"
       ],
-      "storageClassName": "efs-akpq",
+      "storageClassName": "efs-ikgrw",
       "persistentVolumeReclaimPolicy": "Retain",
       "csi": {
         "driver": "efs.csi.aws.com",
