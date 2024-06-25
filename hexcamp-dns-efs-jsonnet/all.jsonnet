@@ -67,5 +67,27 @@ function (
         "volumeHandle": volumeHandle
       }
     }
+  },
+  {
+    "apiVersion": "v1",
+    "kind": "PersistentVolume",
+    "metadata": {
+      "name": "hexcamp-coredns-efs-pv-ikgrw"
+    },
+    "spec": {
+      "capacity": {
+        "storage": "5Gi"
+      },
+      "volumeMode": "Filesystem",
+      "accessModes": [
+        "ReadWriteOnce"
+      ],
+      "storageClassName": "efs-akpq",
+      "persistentVolumeReclaimPolicy": "Retain",
+      "csi": {
+        "driver": "efs.csi.aws.com",
+        "volumeHandle": volumeHandle
+      }
+    }
   }
 ]

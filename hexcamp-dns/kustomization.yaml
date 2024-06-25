@@ -4,5 +4,6 @@ resources:
 - zone-axpq.yaml
 - zone-ai.yaml
 - zone-akpq.yaml
+- zone-ikgrw.yaml
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
