@@ -56,7 +56,7 @@ spec:
           args:
             - |
               set -e
-              while true; do sleep 50; done
+              #while true; do sleep 50; done
               cd /data/coredns-data/as7q/h3/37
               while true; do
                 /coredns -conf Corefile
