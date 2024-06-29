@@ -1,0 +1,75 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: efs-gkgy6
+provisioner: efs.csi.aws.com
+reclaimPolicy: Retain
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: efs-gkgy6
+  namespace: akpq
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: efs-gkgy6
+  resources:
+    requests:
+      storage: 5Gi
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hexcamp-gkgy6
+  namespace: akpq
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/scale-to-zero-pod-retention-period: "15m"
+    spec:
+      containerConcurrency: 0
+      timeoutSeconds: 120
+      containers:
+        - image: ghcr.io/hexcamp/hexcamp-coredns-image@sha256:9b9fce0f4e98167ed1b62ccc0db7bc74b1d834edb0c5cc6a05159cbbfbf35602
+          command: [ bash, -c ]
+          args:
+            - |
+              set -e
+              while true; do sleep 50; done
+              cd /data/coredns-data/gkgy6/h3/20/3/3/0
+              while true; do
+                /coredns -conf Corefile
+                sleep 5
+              done
+          volumeMounts:
+          - name: persistent-storage
+            mountPath: /data
+          ports:
+          - containerPort: 80
+          readinessProbe:
+            tcpSocket:
+              port: 80
+          livenessProbe:
+            tcpSocket:
+              port: 80
+      volumes:
+      - name: persistent-storage
+        persistentVolumeClaim:
+          claimName: efs-gkgy6
+          #readOnly: true
+---
+apiVersion: serving.knative.dev/v1beta1
+kind: DomainMapping
+metadata:
+  name: gkgy6.doh-test.hex.camp
+  namespace: akpq
+spec:
+  ref:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: hexcamp-gkgy6
+    namespace: akpq
+  tls:
+    secretName: doh-test-hex-camp-wildcard-cert
