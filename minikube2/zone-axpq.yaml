@@ -84,7 +84,7 @@ spec:
       - name: persistent-storage
         persistentVolumeClaim:
           claimName: coredns-data
-          readOnly: true
+          #readOnly: true
 ---
 apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
