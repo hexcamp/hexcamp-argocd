@@ -57,6 +57,7 @@ spec:
     metadata:
       annotations:
         autoscaling.knative.dev/scale-to-zero-pod-retention-period: "15m"
+        autoscaling.knative.dev/max-scale: "1"
     spec:
       containerConcurrency: 0
       timeoutSeconds: 120
