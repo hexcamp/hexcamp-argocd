@@ -27,23 +27,23 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: coredns-data
+  name: coredns-data-as7q
   labels:
     type: local
 spec:
   storageClassName: manual
   capacity:
-    storage: 100Mi
+    storage: 10Mi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/home/centos/storage/coredns-data"
+    path: "/home/centos/storage/coredns-data/as7q"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: coredns-data
-  namespace: axpq
+  name: coredns-data-as7q
+  namespace: as7q
   labels:
     type: local
 spec:
@@ -52,7 +52,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
+      storage: 10Mi
 ---
 apiVersion: serving.knative.dev/v1
 kind: Service
@@ -74,7 +74,7 @@ spec:
             - |
               set -e
               #while true; do sleep 50; done
-              cd /data/coredns-data/as7q/h3/37
+              cd /data/h3/37
               while true; do
                 /coredns -conf Corefile
                 sleep 5
@@ -93,7 +93,7 @@ spec:
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
-          claimName: coredns-data
+          claimName: coredns-data-as7q
           #readOnly: true
 ---
 apiVersion: serving.knative.dev/v1beta1
