@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: as7q
+  name: ikgrw
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: doh-test-hex-camp-wildcard
-  namespace: as7q
+  namespace: ikgrw
 spec:
   commonName: "*.doh-test.hex.camp"
   secretName: doh-test-hex-camp-wildcard-cert
@@ -20,7 +20,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: coredns-data-as7q
+  name: coredns-data-ikgrw
   labels:
     type: local
 spec:
@@ -30,13 +30,13 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/home/centos/storage/coredns-data/as7q"
+    path: "/home/centos/storage/coredns-data/ikgrw"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: coredns-data-as7q
-  namespace: as7q
+  name: coredns-data-ikgrw
+  namespace: ikgrw
   labels:
     type: local
 spec:
@@ -50,14 +50,13 @@ spec:
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: hexcamp-as7q
-  namespace: as7q
+  name: hexcamp-ikgrw
+  namespace: ikgrw
 spec:
   template:
     metadata:
       annotations:
         autoscaling.knative.dev/scale-to-zero-pod-retention-period: "15m"
-        autoscaling.knative.dev/max-scale: "1"
     spec:
       containerConcurrency: 0
       timeoutSeconds: 120
@@ -68,7 +67,7 @@ spec:
             - |
               set -e
               #while true; do sleep 50; done
-              cd /data/h3/37
+              cd /data/h3/20/3/2/1/5
               while true; do
                 /coredns -conf Corefile
                 sleep 5
@@ -87,19 +86,19 @@ spec:
       volumes:
       - name: persistent-storage
         persistentVolumeClaim:
-          claimName: coredns-data-as7q
+          claimName: coredns-data-ikgrw
           #readOnly: true
 ---
 apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
 metadata:
-  name: as7q.doh-test.hex.camp
-  namespace: as7q
+  name: ikgrw.doh-test.hex.camp
+  namespace: ikgrw
 spec:
   ref:
     apiVersion: serving.knative.dev/v1
     kind: Service
-    name: hexcamp-as7q
-    namespace: as7q
+    name: hexcamp-ikgrw
+    namespace: ikgrw
   tls:
     secretName: doh-test-hex-camp-wildcard-cert
