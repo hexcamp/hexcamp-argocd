@@ -50,7 +50,7 @@ spec:
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: hexcamp-zone-h3-46
+  name: hexcamp-axpq
   namespace: axpq
 spec:
   template:
@@ -95,7 +95,7 @@ spec:
   ref:
     apiVersion: serving.knative.dev/v1
     kind: Service
-    name: hexcamp-zone-h3-46
+    name: hexcamp-axpq
     namespace: axpq
   tls:
     secretName: doh-test-hex-camp-wildcard-cert

@@ -50,7 +50,7 @@ spec:
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: hexcamp-zone-h3-23
+  name: hexcamp-ai
   namespace: ai
 spec:
   template:
@@ -99,7 +99,7 @@ spec:
   ref:
     apiVersion: serving.knative.dev/v1
     kind: Service
-    name: hexcamp-zone-h3-23
+    name: hexcamp-ai
     namespace: ai
   tls:
     secretName: doh-test-hex-camp-wildcard-cert
