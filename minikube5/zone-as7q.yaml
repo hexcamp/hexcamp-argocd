@@ -56,23 +56,25 @@ spec:
   template:
     metadata:
       annotations:
-        autoscaling.knative.dev/scale-to-zero-pod-retention-period: "15m"
+        autoscaling.knative.dev/scale-to-zero-pod-retention-period: "1m"
         autoscaling.knative.dev/max-scale: "1"
     spec:
       containerConcurrency: 0
       timeoutSeconds: 120
       containers:
-        - image: ghcr.io/hexcamp/hexcamp-coredns-image@sha256:9b9fce0f4e98167ed1b62ccc0db7bc74b1d834edb0c5cc6a05159cbbfbf35602
-          command: [ bash, -c ]
-          args:
-            - |
-              set -e
-              #while true; do sleep 50; done
-              cd /data/h3/37
-              while true; do
-                /coredns -conf Corefile
-                sleep 5
-              done
+        #- image: ghcr.io/hexcamp/hexcamp-coredns-image@sha256:9b9fce0f4e98167ed1b62ccc0db7bc74b1d834edb0c5cc6a05159cbbfbf35602
+        #  command: [ bash, -c ]
+        #  args:
+        #    - |
+        #      set -e
+        #      #while true; do sleep 50; done
+        #      cd /data/h3/37
+        #      while true; do
+        #        /coredns -conf Corefile
+        #        sleep 5
+        #      done
+        - image: coredns/coredns
+          workingDir: /data/h3/37
           volumeMounts:
           - name: persistent-storage
             mountPath: /data
