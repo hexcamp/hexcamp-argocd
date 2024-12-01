@@ -30,7 +30,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/home/centos/storage/coredns-data/gkgy6"
+    path: "/home/ubuntu/storage/coredns-data/gkgy6"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1

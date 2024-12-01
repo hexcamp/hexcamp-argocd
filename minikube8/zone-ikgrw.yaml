@@ -30,7 +30,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/home/centos/storage/coredns-data/ikgrw"
+    path: "/home/ubuntu/storage/coredns-data/ikgrw"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
