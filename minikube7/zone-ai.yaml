@@ -3,20 +3,6 @@ kind: Namespace
 metadata:
   name: ai
 ---
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: doh-test-hex-camp-wildcard
-  namespace: ai
-spec:
-  commonName: "*.doh-test.hex.camp"
-  secretName: doh-test-hex-camp-wildcard-cert
-  dnsNames:
-    - "*.doh-test.hex.camp"
-  issuerRef:
-    name: letsencrypt-prod-dns
-    kind: ClusterIssuer
----
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -91,17 +77,3 @@ spec:
         persistentVolumeClaim:
           claimName: coredns-data-ai
           #readOnly: true
----
-apiVersion: serving.knative.dev/v1beta1
-kind: DomainMapping
-metadata:
-  name: ai.doh-test.hex.camp
-  namespace: ai
-spec:
-  ref:
-    apiVersion: serving.knative.dev/v1
-    kind: Service
-    name: hexcamp-ai
-    namespace: ai
-  tls:
-    secretName: doh-test-hex-camp-wildcard-cert
