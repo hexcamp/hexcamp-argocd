@@ -58,6 +58,7 @@ spec:
       annotations:
         autoscaling.knative.dev/scale-to-zero-pod-retention-period: "30s"
         autoscaling.knative.dev/max-scale: "1"
+        networking.knative.dev/visibility: "cluster-local"
     spec:
       containerConcurrency: 0
       timeoutSeconds: 120
@@ -91,17 +92,3 @@ spec:
         persistentVolumeClaim:
           claimName: coredns-data-as7q
           #readOnly: true
----
-apiVersion: serving.knative.dev/v1beta1
-kind: DomainMapping
-metadata:
-  name: as7q.doh-test.hex.camp
-  namespace: as7q
-spec:
-  ref:
-    apiVersion: serving.knative.dev/v1
-    kind: Service
-    name: hexcamp-as7q
-    namespace: as7q
-  tls:
-    secretName: doh-test-hex-camp-wildcard-cert
