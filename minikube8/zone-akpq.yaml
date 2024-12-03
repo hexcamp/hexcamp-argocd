@@ -3,20 +3,6 @@ kind: Namespace
 metadata:
   name: akpq
 ---
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: doh-test-hex-camp-wildcard
-  namespace: akpq
-spec:
-  commonName: "*.doh-test.hex.camp"
-  secretName: doh-test-hex-camp-wildcard-cert
-  dnsNames:
-    - "*.doh-test.hex.camp"
-  issuerRef:
-    name: letsencrypt-prod-dns
-    kind: ClusterIssuer
----
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -89,17 +75,3 @@ spec:
         persistentVolumeClaim:
           claimName: coredns-data-akpq
           #readOnly: true
----
-apiVersion: serving.knative.dev/v1beta1
-kind: DomainMapping
-metadata:
-  name: akpq.doh-test.hex.camp
-  namespace: akpq
-spec:
-  ref:
-    apiVersion: serving.knative.dev/v1
-    kind: Service
-    name: hexcamp-akpq
-    namespace: akpq
-  tls:
-    secretName: doh-test-hex-camp-wildcard-cert

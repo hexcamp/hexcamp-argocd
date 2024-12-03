@@ -3,20 +3,6 @@ kind: Namespace
 metadata:
   name: gkgy6
 ---
-apiVersion: cert-manager.io/v1
-kind: Certificate
-metadata:
-  name: doh-test-hex-camp-wildcard
-  namespace: gkgy6
-spec:
-  commonName: "*.doh-test.hex.camp"
-  secretName: doh-test-hex-camp-wildcard-cert
-  dnsNames:
-    - "*.doh-test.hex.camp"
-  issuerRef:
-    name: letsencrypt-prod-dns
-    kind: ClusterIssuer
----
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -89,17 +75,3 @@ spec:
         persistentVolumeClaim:
           claimName: coredns-data-gkgy6
           #readOnly: true
----
-apiVersion: serving.knative.dev/v1beta1
-kind: DomainMapping
-metadata:
-  name: gkgy6.doh-test.hex.camp
-  namespace: gkgy6
-spec:
-  ref:
-    apiVersion: serving.knative.dev/v1
-    kind: Service
-    name: hexcamp-gkgy6
-    namespace: gkgy6 
-  tls:
-    secretName: doh-test-hex-camp-wildcard-cert
