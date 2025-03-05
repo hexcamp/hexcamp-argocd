@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: repair-hexcamp-coredns
+  name: repair-hexcamp-terraform-aws-minikube
   namespace: repair
 spec:
   accessModes:

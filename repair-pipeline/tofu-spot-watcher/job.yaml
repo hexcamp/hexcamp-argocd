@@ -17,10 +17,10 @@ spec:
         - |
           set -euxo pipefail
           cd /data
-          if [ ! -d hexcamp-coredns ]; then
-            git clone https://github.com/hexcamp/hexcamp-coredns.git
+          if [ ! -d hexcamp-terraform-aws-minikube ]; then
+            git clone https://github.com/hexcamp/hexcamp-terraform-aws-minikube.git
           fi
-          cd hexcamp-coredns
+          cd hexcamp-terraform-aws-minikube
           git pull
           while true; do sleep 50; done
         volumeMounts:
@@ -30,5 +30,5 @@ spec:
       volumes:
       - name: data-vol
         persistentVolumeClaim:
-          claimName: repair-hexcamp-coredns
+          claimName: repair-hexcamp-terraform-aws-minikube
   backoffLimit: 4
