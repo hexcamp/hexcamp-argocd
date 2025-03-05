@@ -3,6 +3,7 @@
 . ../../.env
 . .env
 
+SSH_RSA_PUB=$(cat ~/.ssh/id_rsa.pub)
 echo GITHUB_PAT $GITHUB_PAT
 
 CLUSTER=ryzen9
@@ -15,6 +16,7 @@ JIMPICK_ACCESS_KEY_ID_BASE64=$(echo -n $JIMPICK_ACCESS_KEY_ID | base64)
 JIMPICK_SECRET_ACCESS_KEY_BASE64=$(echo -n $JIMPICK_SECRET_ACCESS_KEY | base64)
 LOCALNET_FARM_ACCESS_KEY_ID_BASE64=$(echo -n $LOCALNET_FARM_ACCESS_KEY_ID | base64)
 LOCALNET_FARM_SECRET_ACCESS_KEY_BASE64=$(echo -n $LOCALNET_FARM_SECRET_ACCESS_KEY | base64)
+SSH_RSA_PUB_BASE64=$(echo -n $SSH_RSA_PUB | base64)
 
 argocd app create $CLUSTER-repair-aws-secrets \
   --upsert \
@@ -25,5 +27,7 @@ argocd app create $CLUSTER-repair-aws-secrets \
   --jsonnet-tla-str jimpickAccessKeyId=$JIMPICK_ACCESS_KEY_ID_BASE64 \
   --jsonnet-tla-str jimpickSecretAccessKey=$JIMPICK_SECRET_ACCESS_KEY_BASE64 \
   --jsonnet-tla-str localnetFarmAccessKeyId=$LOCALNET_FARM_ACCESS_KEY_ID_BASE64 \
-  --jsonnet-tla-str localnetFarmSecretAccessKey=$LOCALNET_FARM_SECRET_ACCESS_KEY_BASE64
+  --jsonnet-tla-str localnetFarmSecretAccessKey=$LOCALNET_FARM_SECRET_ACCESS_KEY_BASE64 \
+  --jsonnet-tla-str sshRsaPub=$SSH_RSA_PUB_BASE64 \
+
 

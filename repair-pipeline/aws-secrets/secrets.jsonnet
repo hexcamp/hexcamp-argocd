@@ -2,7 +2,8 @@ function (
     jimpickAccessKeyId="xxx",
     jimpickSecretAccessKey="xxx",
     localnetFarmAccessKeyId="xxx",
-    localnetFarmSecretAccessKey="xxx"
+    localnetFarmSecretAccessKey="xxx",
+    sshRsaPub="xxx"
 )
 [
 	{
@@ -17,7 +18,8 @@ function (
         "JIMPICK_ACCESS_KEY_ID": jimpickAccessKeyId,
 		    "JIMPICK_SECRET_ACCESS_KEY": jimpickSecretAccessKey,
         "LOCALNET_FARM_ACCESS_KEY_ID": localnetFarmAccessKeyId,
-		    "LOCALNET_FARM_SECRET_ACCESS_KEY": localnetFarmSecretAccessKey
+		    "LOCALNET_FARM_SECRET_ACCESS_KEY": localnetFarmSecretAccessKey,
+        "SSH_RSA_PUB": sshRsaPub
 	    }
 	}
 ] 
