@@ -16,12 +16,10 @@ JIMPICK_SECRET_ACCESS_KEY_BASE64=$(echo -n $JIMPICK_SECRET_ACCESS_KEY | base64)
 LOCALNET_FARM_ACCESS_KEY_ID_BASE64=$(echo -n $LOCALNET_FARM_ACCESS_KEY_ID | base64)
 LOCALNET_FARM_SECRET_ACCESS_KEY_BASE64=$(echo -n $LOCALNET_FARM_SECRET_ACCESS_KEY | base64)
 
-kubectl create ns cert-manager
-
-argocd app create $CLUSTER-aws-secrets-route53 \
+argocd app create $CLUSTER-repair-aws-secrets \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd.git \
-  --path repair-pipeline/argocd-aws-secrets \
+  --path repair-pipeline/aws-secrets \
   --dest-name $CLUSTER \
   --dest-namespace repair \
   --jsonnet-tla-str jimpickAccessKeyId=$JIMPICK_ACCESS_KEY_ID_BASE64 \
