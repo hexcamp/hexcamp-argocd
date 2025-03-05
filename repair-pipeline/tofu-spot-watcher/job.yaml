@@ -12,7 +12,7 @@ spec:
         volumeMounts:
         - mountPath: "/data"
           name: data-vol
-        restartPolicy: Never
+      restartPolicy: Never
       volumes:
       - name: data-vol
         persistentVolumeClaim:
