@@ -9,5 +9,12 @@ spec:
       - name: pi
         image: perl:5.34.0
         command: ["perl",  "-Mbignum=bpi", "-wle", "print bpi(2000)"]
-      restartPolicy: Never
+        volumeMounts:
+        - mountPath: "/data"
+          name: data-vol
+        restartPolicy: Never
+      volumes:
+      - name: data-vol
+        persistentVolumeClaim:
+          claimName: repair-hexcamp-coredns
   backoffLimit: 4
