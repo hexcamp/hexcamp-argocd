@@ -8,7 +8,7 @@ spec:
     spec:
       containers:
       - name: tofu
-        image: docker pull ghcr.io/hexcamp/hexcamp-knative-images/tofu-spot-watcher@sha256:46d91a92e87e857746e358dc98cd9a0c17f3805eb4491e73601740c9833ca948
+        image: ghcr.io/hexcamp/hexcamp-knative-images/tofu-spot-watcher@sha256:46d91a92e87e857746e358dc98cd9a0c17f3805eb4491e73601740c9833ca948
         envFrom:
         - secretRef:
             name: aws-credentials
