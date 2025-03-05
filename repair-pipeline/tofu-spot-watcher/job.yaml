@@ -26,6 +26,7 @@ spec:
         volumeMounts:
         - mountPath: "/data"
           name: data-vol
+        readinessProbe: null
       restartPolicy: Never
       volumes:
       - name: data-vol
