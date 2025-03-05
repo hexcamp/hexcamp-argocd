@@ -16,13 +16,13 @@ spec:
         args:
         - |
           set -euxo pipefail
+          while true; do sleep 50; done
           cd /data
           if [ ! -d hexcamp-terraform-aws-minikube ]; then
             git clone https://github.com/hexcamp/hexcamp-terraform-aws-minikube.git
           fi
           cd hexcamp-terraform-aws-minikube
           git pull
-          while true; do sleep 50; done
         volumeMounts:
         - mountPath: "/data"
           name: data-vol
