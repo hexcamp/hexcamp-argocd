@@ -12,7 +12,7 @@ spec:
         envFrom:
         - secretRef:
             name: aws-credentials
-        command: [ "sh" ]
+        command: [ sh, -c ]
         args:
         - |
           while true; do sleep 50; done
