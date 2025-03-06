@@ -42,9 +42,9 @@ spec:
         volumeMounts:
         - mountPath: "/data"
           name: data-vol
-      restartPolicy: Never
       volumes:
       - name: data-vol
         persistentVolumeClaim:
           claimName: repair-hexcamp-terraform-aws-minikube
-  backoffLimit: 4
+      restartPolicy: Never
+      concurrencyPolicy: Forbid
