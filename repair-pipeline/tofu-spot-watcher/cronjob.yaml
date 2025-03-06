@@ -37,11 +37,11 @@ spec:
               cd ../..
               echo ">>> minikube9"
               cd examples/minikube9
-              ./update-cronjob.sh && update-ns1-test-hex-camp-cronjob.sh
+              ./update-cronjob.sh && ./update-ns1-test-hex-camp-cronjob.sh
               cd ../..
               echo ">>> minikube10"
               cd examples/minikube10
-              ./update-cronjob.sh && update-ns2-test-hex-camp-cronjob.sh
+              ./update-cronjob.sh && ./update-ns2-test-hex-camp-cronjob.sh
               cd ../..
             volumeMounts:
             - mountPath: "/data"
