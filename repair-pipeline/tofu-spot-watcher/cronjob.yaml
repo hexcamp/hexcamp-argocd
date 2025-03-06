@@ -5,6 +5,7 @@ metadata:
   namespace: repair
 spec:
   schedule: "*/5 * * * *"
+  concurrencyPolicy: Forbid
   jobTemplate:
     spec:
       template:
@@ -49,4 +50,3 @@ spec:
             persistentVolumeClaim:
               claimName: repair-hexcamp-terraform-aws-minikube
           restartPolicy: Never
-          concurrencyPolicy: Forbid
