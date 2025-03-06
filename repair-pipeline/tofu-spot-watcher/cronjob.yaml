@@ -4,7 +4,7 @@ metadata:
   name: tofu
   namespace: repair
 spec:
-  schedule: "*/ * * * *"
+  schedule: "*/5 * * * *"
   jobTemplate:
     spec:
       template:
