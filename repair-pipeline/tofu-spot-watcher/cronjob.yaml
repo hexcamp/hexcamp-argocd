@@ -26,6 +26,7 @@ spec:
                 git clone https://github.com/hexcamp/hexcamp-terraform-aws-minikube.git
               fi
               cd hexcamp-terraform-aws-minikube
+              git pull
               echo ">>> minikube7"
               cd examples/minikube7
               ./update-cronjob.sh
