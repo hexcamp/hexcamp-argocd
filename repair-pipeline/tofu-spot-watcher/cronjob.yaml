@@ -1,10 +1,11 @@
 apiVersion: batch/v1
-kind: Job
+kind: CronJob
 metadata:
   name: tofu
   namespace: repair
 spec:
   template:
+    schedule: "*/ * * * *"
     spec:
       containers:
       - name: tofu
@@ -16,13 +17,28 @@ spec:
         args:
         - |
           set -euxo pipefail
-          while true; do sleep 50; done
           cd /data
+          #while true; do sleep 60; done
           if [ ! -d hexcamp-terraform-aws-minikube ]; then
             git clone https://github.com/hexcamp/hexcamp-terraform-aws-minikube.git
           fi
           cd hexcamp-terraform-aws-minikube
-          git pull
+          echo ">>> minikube7"
+          pushd examples/minikube7
+          ./update-cronjob.sh
+          popd
+          echo ">>> minikube8"
+          pushd examples/minikube8
+          ./update-cronjob.sh
+          popd
+          echo ">>> minikube9"
+          pushd examples/minikube9
+          ./update-cronjob.sh && update-ns1-test-hex-camp-cronjob.sh
+          popd
+          echo ">>> minikube10"
+          pushd examples/minikube10
+          ./update-cronjob.sh && update-ns2-test-hex-camp-cronjob.sh
+          popd
         volumeMounts:
         - mountPath: "/data"
           name: data-vol
