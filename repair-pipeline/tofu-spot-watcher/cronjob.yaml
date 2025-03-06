@@ -12,7 +12,7 @@ spec:
         spec:
           containers:
           - name: tofu
-            image: ghcr.io/hexcamp/hexcamp-knative-images/tofu-spot-watcher@sha256:46d91a92e87e857746e358dc98cd9a0c17f3805eb4491e73601740c9833ca948
+            image: ghcr.io/hexcamp/hexcamp-knative-images/tofu-spot-watcher@sha256:ed2d0e6b2aaa725938d11d00152a880bee4b9c701f9b1b601cb2073a697f8438
             envFrom:
             - secretRef:
                 name: aws-credentials
@@ -21,7 +21,7 @@ spec:
             - |
               set -euxo pipefail
               cd /data
-              #while true; do sleep 60; done
+              while true; do sleep 60; done
               if [ ! -d hexcamp-terraform-aws-minikube ]; then
                 git clone https://github.com/hexcamp/hexcamp-terraform-aws-minikube.git
               fi
