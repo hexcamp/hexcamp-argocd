@@ -8,44 +8,45 @@ spec:
   jobTemplate:
     spec:
       template:
-        containers:
-        - name: tofu
-          image: ghcr.io/hexcamp/hexcamp-knative-images/tofu-spot-watcher@sha256:46d91a92e87e857746e358dc98cd9a0c17f3805eb4491e73601740c9833ca948
-          envFrom:
-          - secretRef:
-              name: aws-credentials
-          command: [ sh, -c ]
-          args:
-          - |
-            set -euxo pipefail
-            cd /data
-            #while true; do sleep 60; done
-            if [ ! -d hexcamp-terraform-aws-minikube ]; then
-              git clone https://github.com/hexcamp/hexcamp-terraform-aws-minikube.git
-            fi
-            cd hexcamp-terraform-aws-minikube
-            echo ">>> minikube7"
-            pushd examples/minikube7
-            ./update-cronjob.sh
-            popd
-            echo ">>> minikube8"
-            pushd examples/minikube8
-            ./update-cronjob.sh
-            popd
-            echo ">>> minikube9"
-            pushd examples/minikube9
-            ./update-cronjob.sh && update-ns1-test-hex-camp-cronjob.sh
-            popd
-            echo ">>> minikube10"
-            pushd examples/minikube10
-            ./update-cronjob.sh && update-ns2-test-hex-camp-cronjob.sh
-            popd
-          volumeMounts:
-          - mountPath: "/data"
-            name: data-vol
-        volumes:
-        - name: data-vol
-          persistentVolumeClaim:
-            claimName: repair-hexcamp-terraform-aws-minikube
-        restartPolicy: Never
-        concurrencyPolicy: Forbid
+        spec:
+          containers:
+          - name: tofu
+            image: ghcr.io/hexcamp/hexcamp-knative-images/tofu-spot-watcher@sha256:46d91a92e87e857746e358dc98cd9a0c17f3805eb4491e73601740c9833ca948
+            envFrom:
+            - secretRef:
+                name: aws-credentials
+            command: [ sh, -c ]
+            args:
+            - |
+              set -euxo pipefail
+              cd /data
+              #while true; do sleep 60; done
+              if [ ! -d hexcamp-terraform-aws-minikube ]; then
+                git clone https://github.com/hexcamp/hexcamp-terraform-aws-minikube.git
+              fi
+              cd hexcamp-terraform-aws-minikube
+              echo ">>> minikube7"
+              pushd examples/minikube7
+              ./update-cronjob.sh
+              popd
+              echo ">>> minikube8"
+              pushd examples/minikube8
+              ./update-cronjob.sh
+              popd
+              echo ">>> minikube9"
+              pushd examples/minikube9
+              ./update-cronjob.sh && update-ns1-test-hex-camp-cronjob.sh
+              popd
+              echo ">>> minikube10"
+              pushd examples/minikube10
+              ./update-cronjob.sh && update-ns2-test-hex-camp-cronjob.sh
+              popd
+            volumeMounts:
+            - mountPath: "/data"
+              name: data-vol
+          volumes:
+          - name: data-vol
+            persistentVolumeClaim:
+              claimName: repair-hexcamp-terraform-aws-minikube
+          restartPolicy: Never
+          concurrencyPolicy: Forbid
