@@ -1,0 +1,19 @@
+apiVersion: sources.knative.dev/v1
+kind: SinkBinding
+metadata:
+  name: tofu-binding
+  namespace: repair
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: broker
+      namespace: repair
+  subject:
+    apiVersion: batch/v1
+    kind: Job
+    namespace: repair
+    selector:
+      matchLabels:
+        app: tofu-cron
