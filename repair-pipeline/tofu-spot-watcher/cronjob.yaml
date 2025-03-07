@@ -7,6 +7,9 @@ spec:
   schedule: "*/5 * * * *"
   concurrencyPolicy: Forbid
   jobTemplate:
+    metadata:
+      labels:
+        app: tofu-cron
     spec:
       template:
         spec:
