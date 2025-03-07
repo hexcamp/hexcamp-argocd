@@ -1,0 +1,12 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: cloudevents-player
+  namespace: repair
+spec:
+  broker: broker
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: cloudevents-player
