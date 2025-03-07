@@ -1,0 +1,19 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: cloudevents-player
+  namespace: repair
+spec:
+  template:
+    spec:
+      containerConcurrency: 0
+      containers:
+      - image: quay.io/ruben/cloudevents-player:latest
+        name: user-container
+        readinessProbe:
+          successThreshold: 1
+          tcpSocket:
+            port: 0
+        resources: {}
+      enableServiceLinks: false
+      timeoutSeconds: 300
