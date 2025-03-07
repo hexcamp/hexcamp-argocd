@@ -46,7 +46,8 @@ spec:
               cd examples/minikube10
               ./update-cronjob.sh && ./update-ns2-test-hex-camp-cronjob.sh
               cd ../..
-              while true; do sleep 60; done
+              #while true; do sleep 60; done
+              ./send-ips-as-cloudevent.sh
             volumeMounts:
             - mountPath: "/data"
               name: data-vol
