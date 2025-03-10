@@ -103,7 +103,7 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: rclone-test-pvc
+            claimName: coredns-data-as7q
       enableServiceLinks: false
       timeoutSeconds: 300
 ---
