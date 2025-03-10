@@ -3,30 +3,12 @@ kind: Namespace
 metadata:
   name: as7q
 ---
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: coredns-data-as7q
-  labels:
-    type: local
-spec:
-  storageClassName: manual
-  capacity:
-    storage: 10Mi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/home/ubuntu/storage/coredns-data/as7q"
----
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: coredns-data-as7q
   namespace: as7q
-  labels:
-    type: local
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
