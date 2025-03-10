@@ -47,6 +47,7 @@ spec:
           volumeMounts:
           - name: persistent-storage
             mountPath: /data
+            readOnly: true
           ports:
           - containerPort: 80
           readinessProbe:
