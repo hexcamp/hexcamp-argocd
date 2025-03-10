@@ -113,5 +113,5 @@ data:
 kind: Secret
 metadata:
   name: rclone-password
-  namespace: default
+  namespace: as7q
 type: Opaque
