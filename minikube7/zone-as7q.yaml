@@ -115,3 +115,17 @@ metadata:
   name: rclone-password
   namespace: as7q
 type: Opaque
+---
+apiVersion: serving.knative.dev/v1beta1
+kind: DomainMapping
+metadata:
+  name: rclone-minikube7-as7q.infra.hex.camp
+  namespace: default
+spec:
+  ref:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: hexcamp-as7q-rclone
+    namespace: as7q
+  tls:
+    secretName: infra-hex-camp-wildcard-cert
