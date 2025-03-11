@@ -2,10 +2,14 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: as7q
-  labels:
-    as7q.tree.hnc.x-k8s.io/depth: "0"
-    default.tree.hnc.x-k8s.io/depth: "1"
-    hnc.x-k8s.io/included-namespace: "true"
+---
+apiVersion: hnc.x-k8s.io/v1alpha2
+kind: HierarchyConfiguration
+metadata:
+  name: hierarchy
+  namespace: as7q
+spec:
+  parent: default
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
