@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: localnet-farm-wildcard
+  name: infra-hex-camp-wildcard
   namespace: default
 spec:
-  commonName: "*.localnet.farm"
-  secretName: localnet-farm-wildcard-cert
+  commonName: "*.infra.hex.camp"
+  secretName: infra-hex-camp-wildcard-cert
   dnsNames:
-    - "*.localnet.farm"
+    - "*.infra.hex.camp"
   issuerRef:
     name: letsencrypt-prod-dns
     kind: ClusterIssuer
