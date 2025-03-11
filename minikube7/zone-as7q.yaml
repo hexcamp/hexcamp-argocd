@@ -2,6 +2,10 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: as7q
+  labels:
+    as7q.tree.hnc.x-k8s.io/depth: "0"
+    default.tree.hnc.x-k8s.io/depth: "1"
+    hnc.x-k8s.io/included-namespace: "true"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
