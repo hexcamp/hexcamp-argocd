@@ -115,15 +115,6 @@ spec:
       enableServiceLinks: false
       timeoutSeconds: 300
 ---
-apiVersion: v1
-data:
-  password: cGFzczEyMw==
-kind: Secret
-metadata:
-  name: rclone-password
-  namespace: as7q
-type: Opaque
----
 apiVersion: serving.knative.dev/v1beta1
 kind: DomainMapping
 metadata:
