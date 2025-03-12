@@ -8,12 +8,9 @@ echo GITHUB_PAT $GITHUB_PAT
 
 argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick --password $GITHUB_PAT --upsert
 
-RCLONE_PASSWORD_BASE64=$(echo -n $RCLONE_PASSWORD | base64)
-
-argocd app create $CLUSTER-secrets \
+argocd app create $CLUSTER-zones \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd.git \
-  --path $CLUSTER-secrets \
+  --path $CLUSTER-zones \
   --dest-name $CLUSTER \
-  --dest-namespace default \
-  --jsonnet-tla-str rclonePassword=$RCLONE_PASSWORD_BASE64
+  --dest-namespace default
