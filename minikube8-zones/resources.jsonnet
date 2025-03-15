@@ -6,7 +6,7 @@ local ksvcCoreDNS = (import 'ksvcCoreDNS.libsonnet').ksvcCoreDNS;
 local ksvcRclone = (import 'ksvcRclone.libsonnet').ksvcRclone;
 local domainMappingRclone = (import 'domainMappingRclone.libsonnet').domainMappingRclone;
 
-local cluster = 'minikube7';
+local cluster = 'minikube8';
 
 local resourcesForRegion(region) =
   local regionId = region.region;
