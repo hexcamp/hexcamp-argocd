@@ -1,0 +1,27 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: zone-generator
+  namespace: repair
+spec:
+  template:
+    spec:
+      containerConcurrency: 0
+      containers:
+      - env:
+        - name: BUILT
+          value: 20250316T225711
+        image: ghcr.io/hexcamp/zone-generator@sha256:42cfbb09b26f52c05cce1d9c6ad8c5579f3872d5038bfd9bd5c55073eef940e2
+        livenessProbe:
+          httpGet:
+            path: /health/liveness
+            port: 0
+        name: user-container
+        readinessProbe:
+          httpGet:
+            path: /health/readiness
+            port: 0
+          successThreshold: 1
+        resources: {}
+      enableServiceLinks: false
+      timeoutSeconds: 300
