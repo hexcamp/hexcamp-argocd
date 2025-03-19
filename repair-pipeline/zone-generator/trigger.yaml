@@ -5,7 +5,9 @@ metadata:
   namespace: repair
 spec:
   broker: broker
-  filter: {}
+  filter:
+    attributes:
+      type: camp.hex.ce.tofu-ips
   subscriber:
     ref:
       apiVersion: v1
