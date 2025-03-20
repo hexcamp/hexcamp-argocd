@@ -12,8 +12,8 @@ spec:
       containerConcurrency: 0
       containers:
       - env:
-        - name: BUILT
-          value: 20250316T225711
+        - name: PATH
+          value: "/cnb/process:/cnb/lifecycle:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/data/hexcamp-coredns"
         image: ghcr.io/hexcamp/hexcamp-knative-images/zone-generator-image@sha256:e5408087427139dbe064feba5052b7c6ea04f89c28c6435b3bcfeda1e507e5ba
         volumeMounts:
         - mountPath: "/data"
