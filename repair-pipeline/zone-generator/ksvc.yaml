@@ -14,7 +14,7 @@ spec:
       - env:
         - name: PATH
           value: "/cnb/process:/cnb/lifecycle:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/data/hexcamp-coredns"
-        image: ghcr.io/hexcamp/hexcamp-knative-images/zone-generator-image@sha256:dd2fc8a494eceb4876f0bce5b37ed7b8ccf30567efdb5b3afaf2f3b947d26679
+        image: ghcr.io/hexcamp/hexcamp-knative-images/zone-generator-image@sha256:4c20a9beadb775b2a6144ce8cc54d09506e3a2c8e670d4b397cc473ccaf9c7ff
         volumeMounts:
         - mountPath: "/data"
           name: data-vol
