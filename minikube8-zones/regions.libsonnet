@@ -8,6 +8,10 @@
     workingDir: '/data/h3/20/3/3/0'
   },
   {
+    region: 'gkgv6',
+    workingDir: '/data/h3/20/3/2/5'
+  },
+  {
     region: 'akpq',
     workingDir: '/data/h3/20'
   }
