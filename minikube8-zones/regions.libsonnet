@@ -1,5 +1,13 @@
 [
   {
+    region: 'ai',
+    workingDir: '/data/h3/23',
+  },
+  {
+    region: 'as7q',
+    workingDir: '/data/h3/37',
+  },
+  {
     region: 'ikgrw',
     workingDir: '/data/h3/20/3/2/1/5'
   },
@@ -14,5 +22,5 @@
   {
     region: 'akpq',
     workingDir: '/data/h3/20'
-  }
+  },
 ]
