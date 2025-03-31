@@ -1,6 +1,6 @@
 #! /bin/bash
 
-. ../../.env
+. ../../../../.env
 
 CLUSTER=nuc
 
@@ -12,7 +12,7 @@ kubectl --context $CLUSTER create ns $NS
 
 argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick --password $GITHUB_PAT --upsert
 
-argocd app create $CLUSTER-repair-eventing \
+argocd app create ipfs-seahex-gkgv6-$CLUSTER \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd \
   --path ipfs/seahex/gkgv6/nuc \
