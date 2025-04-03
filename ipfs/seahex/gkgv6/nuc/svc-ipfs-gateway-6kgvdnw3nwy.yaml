@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ipfs-gateway-6kgvdnw3nwy
+spec:
+  selector:
+    app: ipfs
+    hex: 6kgvdnw3nwy
+  ports:
+    - name: gateway
+      port: 8080
+      targetPort: gateway
