@@ -55,7 +55,7 @@ spec:
             sh -c "sleep 20; ipfs log level all info" &
             #sh -c "sleep 20; ipfs log level core/server debug" &
             ipfs repo gc
-            timeout 2h ipfs daemon
+            timeout 2h ipfs daemon --migrate=true
         env:
           - name: IPFS_LOGGING
             value: info
