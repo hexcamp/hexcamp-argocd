@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ipfs-6kgvdnw3nwy
+  name: ipfs-6kgvdnw3nwya
   namespace: gkgv6
   labels:
     app: ipfs
-    hex: 6kgvdnw3nwy
+    hex: 6kgvdnw3nwya
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     metadata:
       labels:
         app: ipfs
-        hex: 6kgvdnw3nwy
+        hex: 6kgvdnw3nwya
     spec:  
       containers:
       - name: ipfs
