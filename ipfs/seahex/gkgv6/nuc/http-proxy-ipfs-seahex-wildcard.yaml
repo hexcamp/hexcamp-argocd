@@ -16,6 +16,6 @@ spec:
     - name: ipfs-gateway-6kgvdnw3nwya
       port: 8080
   virtualhost:
-    fqdn: *.seahex.org
+    fqdn: "*.seahex.org"
     tls:
       secretName: seahex-wildcard-cert
