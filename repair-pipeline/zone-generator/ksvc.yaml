@@ -11,9 +11,13 @@ spec:
     spec:
       containerConcurrency: 0
       containers:
-      - env:
+      - name: user-container
+        env:
         - name: PATH
           value: "/cnb/process:/cnb/lifecycle:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/data/hexcamp-coredns"
+        envFrom:
+        - secretRef:
+            name: aws-credentials
         image: ghcr.io/hexcamp/hexcamp-knative-images/zone-generator-image@sha256:e80d21e7afe25e3ad65c30837aa0b2534e962f44a5775063b6ff9eb3c1ff58ae
         volumeMounts:
         - mountPath: "/data"
@@ -22,7 +26,6 @@ spec:
           httpGet:
             path: /health/liveness
             port: 0
-        name: user-container
         readinessProbe:
           httpGet:
             path: /health/readiness
