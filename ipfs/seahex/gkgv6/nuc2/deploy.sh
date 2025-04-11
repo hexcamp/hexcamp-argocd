@@ -2,7 +2,7 @@
 
 . ../../../../.env
 
-CLUSTER=nuc
+CLUSTER=nuc2
 
 echo GITHUB_PAT $GITHUB_PAT
 
