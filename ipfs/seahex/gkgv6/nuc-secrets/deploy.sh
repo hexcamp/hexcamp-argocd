@@ -1,5 +1,6 @@
 #! /bin/bash
 
+. ../../../../.env
 . .env
 
 CLUSTER=$(pwd | sed 's,^.*\/,,' | sed 's,-.*,,')
