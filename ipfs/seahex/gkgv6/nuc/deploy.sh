@@ -2,7 +2,7 @@
 
 . ../../../../.env
 
-CLUSTER=nuc
+CLUSTER=$(pwd | sed 's,^.*\/,,' | sed 's,-.*,,')
 
 echo GITHUB_PAT $GITHUB_PAT
 
