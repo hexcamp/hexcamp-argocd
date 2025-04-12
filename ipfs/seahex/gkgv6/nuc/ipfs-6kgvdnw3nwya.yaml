@@ -28,11 +28,13 @@ spec:
           - |
             set -e
             dd if=/dev/zero of=/data/ipfs/empty.bin bs=1M count=1000
-            #while true; do sleep 50; done
             if [ ! -f /data/ipfs/config ]; then
               ipfs init --profile=server
             fi
-            ipfs config Identity.PeerID $IPFS_PEER_ID
+            cat /data/ipfs/config | sed "s,\"PeerID\": \".*\",\"PeerID\": \"$IPFS_PEER_ID\"," > /data/ipfs/config2
+            cat /data/ipfs/config2 | sed "s,\"PrivKey\": \".*\",\"PrivKey\": \"$IPFS_PRIVATE_KEY\"," > /data/ipfs/config
+            rm -f /data/ipfs/config2
+            #while true; do sleep 50; done
             ipfs config Identity.PrivKey $IPFS_PRIVATE_KEY
             ipfs config Addresses.API '/ip4/0.0.0.0/tcp/5001'
             ipfs config Addresses.Gateway '/ip4/0.0.0.0/tcp/8080'
