@@ -21,14 +21,20 @@ spec:
       - name: ipfs
         image: ipfs/kubo:v0.34.1
         command: [ sh, -c ]
+        envFrom:
+        - secretRef:
+            name: ipfs-secrets
         args:
           - |
             set -e
             dd if=/dev/zero of=/data/ipfs/empty.bin bs=1M count=1000
-            #while true; do sleep 50; done
             if [ ! -f /data/ipfs/config ]; then
               ipfs init --profile=server
             fi
+            cat /data/ipfs/config | sed "s,\"PeerID\": \".*\",\"PeerID\": \"$IPFS_PEER_ID\"," > /data/ipfs/config2
+            cat /data/ipfs/config2 | sed "s,\"PrivKey\": \".*\",\"PrivKey\": \"$IPFS_PRIVATE_KEY\"," > /data/ipfs/config
+            rm -f /data/ipfs/config2
+            #while true; do sleep 50; done
             ipfs config Addresses.API '/ip4/0.0.0.0/tcp/5001'
             ipfs config Addresses.Gateway '/ip4/0.0.0.0/tcp/8080'
             #ipfs config --json Addresses.Announce '[ "/dns4/pq-pop-ca-1.infra.hex.camp/tcp/4001", "/dns4/pq-pop-ca-1.infra.hex.camp/udp/4001/quic" ]'
