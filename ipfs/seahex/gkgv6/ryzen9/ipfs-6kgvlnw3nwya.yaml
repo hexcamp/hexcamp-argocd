@@ -1,0 +1,92 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipfs-6kgvlnw3nwya
+  namespace: gkgv6
+  labels:
+    app: ipfs
+    hex: 6kgvlnw3nwya
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ipfs
+  template:
+    metadata:
+      labels:
+        app: ipfs
+        hex: 6kgvlnw3nwya
+    spec:  
+      containers:
+      - name: ipfs
+        image: ipfs/kubo:v0.34.1
+        command: [ sh, -c ]
+        envFrom:
+        - secretRef:
+            name: ipfs-secrets
+        args:
+          - |
+            set -e
+            dd if=/dev/zero of=/data/ipfs/empty.bin bs=1M count=1000
+            if [ ! -f /data/ipfs/config ]; then
+              ipfs init --profile=server
+            fi
+            cat /data/ipfs/config | sed "s,\"PeerID\": \".*\",\"PeerID\": \"$IPFS_PEER_ID\"," > /data/ipfs/config2
+            cat /data/ipfs/config2 | sed "s,\"PrivKey\": \".*\",\"PrivKey\": \"$IPFS_PRIVATE_KEY\"," > /data/ipfs/config
+            rm -f /data/ipfs/config2
+            #while true; do sleep 50; done
+            ipfs config Addresses.API '/ip4/0.0.0.0/tcp/5001'
+            ipfs config Addresses.Gateway '/ip4/0.0.0.0/tcp/8080'
+            #ipfs config --json Addresses.Announce '[ "/dns4/pq-pop-ca-1.infra.hex.camp/tcp/4001", "/dns4/pq-pop-ca-1.infra.hex.camp/udp/4001/quic" ]'
+            ipfs config --json Datastore.StorageMax '"20GB"'
+            ipfs config --json Gateway.NoFetch true
+            ipfs config --json Gateway.NoDNSLink false
+            ipfs config --json Gateway.PublicGateways '{}'
+            ipfs config --json Peering.Peers '[
+              {
+                "Addrs": [
+                  "/dns4/pq-pop-de-1.infra.hex.camp/tcp/4001",
+                  "/dns4/pq-pop-de-1.infra.hex.camp/udp/4001/quic"
+                ],
+                "ID": "12D3KooWD2T7suwtg7aWPDeSUTEBeZhmzqbbfcqgucxpukd6Gpu3"
+              },
+              {
+                "Addrs": [
+                  "/dns4/pq-pop-sg-1.infra.hex.camp/tcp/4001",
+                  "/dns4/pq-pop-sg-1.infra.hex.camp/udp/4001/quic"
+                ],
+                "ID": "12D3KooWQLJVGiTvoZEzYBXjnKWxEBAgtmZ1ehMGX5Raxs5wQu2A"
+              }
+            ]'
+            sh -c "sleep 20; ipfs log level all info" &
+            #sh -c "sleep 20; ipfs log level core/server debug" &
+            ipfs repo gc
+            timeout 2h ipfs daemon --migrate=true
+        env:
+          - name: IPFS_LOGGING
+            value: info
+        volumeMounts:
+           - mountPath: /export
+             name: staging
+           - mountPath: /data/ipfs
+             name: data
+        ports:
+          - protocol: TCP
+            containerPort: 4001
+            name: libp2p-tcp
+          - protocol: UDP
+            containerPort: 4001
+            name: libp2p-udp
+          - containerPort: 5001
+            name: api
+          - containerPort: 8080
+            name: gateway
+        resources:
+          limits:
+            memory: 1000Mi
+      volumes:
+      - name: staging
+        emptyDir: {}
+      - name: data
+        persistentVolumeClaim:
+          claimName: ipfs-data

@@ -1,0 +1,21 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  annotations:
+    projectcontour.io/ingress.class: contour-external
+  labels:
+    projectcontour.io/ingress.class: contour-external
+  name: ipfs-gateway-6kgvlnw3nwya
+  namespace: gkgv6
+spec:
+  routes:
+  - conditions:
+      - prefix: /
+    permitInsecure: true
+    services:
+    - name: ipfs-gateway-6kgvlnw3nwya
+      port: 8080
+  virtualhost:
+    fqdn: 6kgvlnw3nwya.seahex.org
+    tls:
+      secretName: seahex-wildcard-cert
