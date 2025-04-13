@@ -2,7 +2,7 @@
 
 . ../../../../.env
 
-CLUSTER=nuc2
+CLUSTER=ryzen9
 
 echo GITHUB_PAT $GITHUB_PAT
 

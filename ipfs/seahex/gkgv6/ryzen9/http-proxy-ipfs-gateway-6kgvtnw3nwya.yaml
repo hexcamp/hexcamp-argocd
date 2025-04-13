@@ -5,7 +5,7 @@ metadata:
     projectcontour.io/ingress.class: contour-external
   labels:
     projectcontour.io/ingress.class: contour-external
-  name: ipfs-gateway-6kgvlnw3nwya
+  name: ipfs-gateway-6kgvtnw3nwya
   namespace: gkgv6
 spec:
   routes:
@@ -13,9 +13,9 @@ spec:
       - prefix: /
     permitInsecure: true
     services:
-    - name: ipfs-gateway-6kgvlnw3nwya
+    - name: ipfs-gateway-6kgvtnw3nwya
       port: 8080
   virtualhost:
-    fqdn: 6kgvlnw3nwya.seahex.org
+    fqdn: 6kgvtnw3nwya.seahex.org
     tls:
       secretName: seahex-wildcard-cert

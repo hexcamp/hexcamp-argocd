@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ipfs-gateway-6kgvlnw3nwya
+  name: ipfs-gateway-6kgvtnw3nwya
 spec:
   selector:
     app: ipfs
-    hex: 6kgvlnw3nwya
+    hex: 6kgvtnw3nwya
   ports:
     - name: gateway
       port: 8080

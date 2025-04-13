@@ -13,7 +13,7 @@ spec:
       - prefix: /
     permitInsecure: true
     services:
-    - name: ipfs-gateway-6kgvlnw3nwya
+    - name: ipfs-gateway-6kgvtnw3nwya
       port: 8080
   virtualhost:
     fqdn: "*.seahex.org"
