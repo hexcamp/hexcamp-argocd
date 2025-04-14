@@ -14,6 +14,8 @@ spec:
       labels:
         app: ipfs-cluster
     spec:
+      strategy:
+        type: Recreate
       containers:
       - name: ipfs-cluster
         image: ipfs/ipfs-cluster:v1.1.2
