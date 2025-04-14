@@ -1,5 +1,6 @@
 #! /bin/bash
 
+. ../../../../.env
 . .env
 
 CLUSTER_SECRET_BASE64=$(echo -n $CLUSTER_SECRET | base64)
