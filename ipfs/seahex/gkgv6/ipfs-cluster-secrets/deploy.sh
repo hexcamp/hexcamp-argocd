@@ -22,4 +22,5 @@ for cluster in nuc nuc2 ryzen9; do
     --dest-namespace $NS \
     --jsonnet-tla-str clusterSecret=$CLUSTER_SECRET_BASE64 \
     --jsonnet-tla-str clusterRestapiBasicauthcredentials=$CLUSTER_RESTAPI_BASICAUTHCREDENTIALS_BASE64
+  argocd app sync ipfs-seahex-$NS-cluster-secrets-$cluster
 done

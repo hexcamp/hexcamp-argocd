@@ -9,13 +9,13 @@ spec:
   selector:
     matchLabels:
       app: ipfs-cluster
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
         app: ipfs-cluster
     spec:
-      strategy:
-        type: Recreate
       containers:
       - name: ipfs-cluster
         image: ipfs/ipfs-cluster:v1.1.2
