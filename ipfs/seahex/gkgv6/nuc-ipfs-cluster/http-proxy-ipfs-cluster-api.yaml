@@ -13,7 +13,7 @@ spec:
       - prefix: /
     permitInsecure: true
     services:
-    - name: ipfs-cluster
+    - name: ipfs-cluster-api
       port: 9094
   virtualhost:
     fqdn: "6kgvhnw3nwya.seahex.org"
