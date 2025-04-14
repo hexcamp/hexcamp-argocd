@@ -59,7 +59,7 @@ spec:
                 name: ipfs-cluster-secrets
                 key: clusterRestapiBasicauthcredentials
           - name: CLUSTER_IPFSHTTP_NODEMULTIADDRESS
-            value: /dns4/ipfs-api/tcp/5001
+            value: /dns4/ipfs-api-6kgvdnw3nwya/tcp/5001
           - name: CLUSTER_CRDT_TRUSTEDPEERS
             value: "*"
           - name: CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS
