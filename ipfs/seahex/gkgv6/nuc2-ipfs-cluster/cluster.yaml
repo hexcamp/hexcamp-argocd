@@ -28,7 +28,7 @@ spec:
               ipfs-cluster-service init --consensus crdt
             fi
             sed -i "s/\"basic_auth_credentials\": .*\$/\"basic_auth_credentials\": $CLUSTER_RESTAPI_BASICAUTHCREDENTIALS_JSON,/" /data/ipfs-cluster/service.json
-            ipfs-cluster-service daemon --bootstrap /dns4/6kgvhnw3nwya.seahex.org/tcp/443/ipfs/12D3KooWKrnjPohbYUmSMrGgjuGcE5hwE3z55mXwiZWbhga9yrUe
+            ipfs-cluster-service daemon --bootstrap /dns4/6kgvtnw3nwyq.seahex.org/tcp/443/wss/p2p/12D3KooWKrnjPohbYUmSMrGgjuGcE5hwE3z55mXwiZWbhga9yrUe
             #ipfs-cluster-service daemon
             #while true; do sleep 50; done
         volumeMounts:
