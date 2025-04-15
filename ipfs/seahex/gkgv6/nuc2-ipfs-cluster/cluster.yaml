@@ -60,6 +60,10 @@ spec:
               secretKeyRef:
                 name: ipfs-cluster-secrets
                 key: clusterRestapiBasicauthcredentials
+          - name: CLUSTER_LISTEN_MULTIADDRESS
+            value: /ip4/0.0.0.0/tcp/9096/ws
+          - name: CLUSTER_ANNOUNCE_MULTIADDRESS
+            value: /dns4/6kgvxnw3nwyq.seahex.org/tcp/443/wss
           - name: CLUSTER_IPFSHTTP_NODEMULTIADDRESS
             value: /dns4/ipfs-api-6kgvlnw3nwya/tcp/5001
           - name: CLUSTER_CRDT_TRUSTEDPEERS
