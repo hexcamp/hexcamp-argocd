@@ -49,7 +49,7 @@ spec:
             name: jaeger
         env:
           - name: CLUSTER_PEERNAME
-            value: seahex-nuc
+            value: seahex-nuc2
           - name: CLUSTER_SECRET
             valueFrom:
               secretKeyRef:
