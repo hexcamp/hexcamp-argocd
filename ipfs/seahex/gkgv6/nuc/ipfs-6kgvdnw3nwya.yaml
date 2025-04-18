@@ -39,9 +39,9 @@ spec:
             ipfs config Addresses.Gateway '/ip4/0.0.0.0/tcp/8080'
             #ipfs config --json Addresses.Announce '[ "/dns4/pq-pop-ca-1.infra.hex.camp/tcp/4001", "/dns4/pq-pop-ca-1.infra.hex.camp/udp/4001/quic" ]'
             ipfs config --json Datastore.StorageMax '"20GB"'
-            #ipfs config --json Gateway.NoFetch true
+            ipfs config --json Gateway.NoFetch true
             ipfs config --json Gateway.NoDNSLink false
-            ipfs config --json Gateway.PublicGateways '{}'
+            #ipfs config --json Gateway.PublicGateways '{}'
             ipfs config --json Peering.Peers '[
               {
                 "Addrs": [
