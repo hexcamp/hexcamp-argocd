@@ -1,0 +1,22 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  annotations:
+    projectcontour.io/ingress.class: contour-external
+  labels:
+    projectcontour.io/ingress.class: contour-external
+  name: ipfs-cluster-swarm-seahex
+  namespace: gkgv6
+spec:
+  routes:
+  - conditions:
+      - prefix: /
+    permitInsecure: true
+    enableWebsockets: true
+    services:
+    - name: ipfs-cluster-swarm
+      port: 9096
+  virtualhost:
+    fqdn: "6kgvxnw3nwyq.seahex.org"
+    tls:
+      secretName: seahex-wildcard-cert
