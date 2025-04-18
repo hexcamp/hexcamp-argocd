@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipfs-cluster
+  labels:
+    app: ipfs-cluster
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ipfs-cluster
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: ipfs-cluster
+    spec:
+      containers:
+      - name: ipfs-cluster
+        image: ipfs/ipfs-cluster:v1.1.2
+        command: [ sh, -c ]
+        args:
+          - |
+            set -e
+            #while true; do sleep 50; done
+            if [ ! -d /data/ipfs-cluster/service.json ]; then
+              ipfs-cluster-service init --consensus crdt
+            fi
+            sed -i "s/\"basic_auth_credentials\": .*\$/\"basic_auth_credentials\": $CLUSTER_RESTAPI_BASICAUTHCREDENTIALS_JSON,/" /data/ipfs-cluster/service.json
+            ipfs-cluster-service daemon --bootstrap /dns4/6kgvtnw3nwyq.seahex.org/tcp/443/wss/p2p/12D3KooWKrnjPohbYUmSMrGgjuGcE5hwE3z55mXwiZWbhga9yrUe,/dns4/6kgvxnw3nwyq.seahex.org/tcp/443/wss/p2p/12D3KooWF7YkM6ep4xn7gMymFcNEVMqMcff9u1dteNaQLhVQQosy
+            #ipfs-cluster-service daemon
+            #while true; do sleep 50; done
+        volumeMounts:
+           - mountPath: /data/ipfs-cluster
+             name: data
+        ports:
+          - containerPort: 9094
+            name: api
+          - containerPort: 9095
+            name: proxy-api
+          - containerPort: 9096
+            name: cluster-swarm
+          - containerPort: 9097
+            name: ipfs-pinning
+          - containerPort: 8888
+            name: prometheus
+          - containerPort: 6831
+            name: jaeger
+        env:
+          - name: CLUSTER_PEERNAME
+            value: seahex-ryzen9
+          - name: CLUSTER_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: ipfs-cluster-secrets
+                key: clusterSecret
+          - name: CLUSTER_RESTAPI_BASICAUTHCREDENTIALS_JSON
+            valueFrom:
+              secretKeyRef:
+                name: ipfs-cluster-secrets
+                key: clusterRestapiBasicauthcredentials
+          - name: CLUSTER_LISTEN_MULTIADDRESS
+            value: /ip4/0.0.0.0/tcp/9096/ws
+          - name: CLUSTER_ANNOUNCE_MULTIADDRESS
+            value: /dns4/6kgv3nw3nwyq.seahex.org/tcp/443/wss
+          - name: CLUSTER_IPFSHTTP_NODEMULTIADDRESS
+            value: /dns4/ipfs-api-6kgvlnw3nwya/tcp/5001
+          - name: CLUSTER_CRDT_TRUSTEDPEERS
+            value: "*"
+          - name: CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS
+            value: /ip4/0.0.0.0/tcp/9094
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+            claimName: ipfs-cluster-data
