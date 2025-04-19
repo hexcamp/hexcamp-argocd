@@ -41,7 +41,7 @@ spec:
             ipfs config --json Datastore.StorageMax '"20GB"'
             ipfs config --json Gateway.NoFetch true
             ipfs config --json Gateway.NoDNSLink false
-            ipfs config --json Gateway.PublicGateways '{}'
+            #ipfs config --json Gateway.PublicGateways '{}'
             ipfs config --json Peering.Peers '[
               {
                 "Addrs": [
