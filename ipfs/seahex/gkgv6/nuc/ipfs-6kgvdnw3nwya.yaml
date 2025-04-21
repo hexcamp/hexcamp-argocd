@@ -59,15 +59,15 @@ spec:
               },
               {
                 "Addrs": [
-                  "/dns4/pq-pop-de-1.infra.hex.camp/tcp/4001/p2p/12D3KooWD2T7suwtg7aWPDeSUTEBeZhmzqbbfcqgucxpukd6Gpu3/p2p-circuit",
+                  "/dns4/pq-pop-de-1.infra.hex.camp/tcp/4001/p2p/12D3KooWD2T7suwtg7aWPDeSUTEBeZhmzqbbfcqgucxpukd6Gpu3/p2p-circuit"
                 ],
                 "ID": "12D3KooWL2NnxBrovYsrGNhJriCfaxWwxykpMxMzisFe9ZycyrCm"
               },
               {
                 "Addrs": [
-                  "/dns4/pq-pop-sg-1.infra.hex.camp/tcp/4001/p2p/12D3KooWQLJVGiTvoZEzYBXjnKWxEBAgtmZ1ehMGX5Raxs5wQu2A/p2p-circuit",
+                  "/dns4/pq-pop-sg-1.infra.hex.camp/tcp/4001/p2p/12D3KooWQLJVGiTvoZEzYBXjnKWxEBAgtmZ1ehMGX5Raxs5wQu2A/p2p-circuit"
                 ],
-                "ID": "12D3KooWKLybeku2gRn1GzUs5PaULT7UQR2vt7HiRcMP15wFhdqS",
+                "ID": "12D3KooWKLybeku2gRn1GzUs5PaULT7UQR2vt7HiRcMP15wFhdqS"
               }
             ]'
             sh -c "sleep 20; ipfs log level all info" &
