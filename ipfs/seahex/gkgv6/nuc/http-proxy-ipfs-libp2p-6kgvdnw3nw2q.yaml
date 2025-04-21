@@ -16,7 +16,7 @@ spec:
     services:
     - name: ipfs-libp2p-6kgvdnw3nw2q
       port: 4001
-      protocol: h2c # allows for unencrypted http2 connections
+      #protocol: h2c # allows for unencrypted http2 connections
   virtualhost:
     fqdn: 6kgvdnw3nw2q.seahex.org
     tls:
