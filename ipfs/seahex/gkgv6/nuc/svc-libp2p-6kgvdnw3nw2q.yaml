@@ -4,8 +4,13 @@ metadata:
   name: ipfs-libp2p-6kgvdnw3nw2q
 spec:
   selector:
-    app: ipfs
-    hex: 6kgvdnw3nwya
+    app: nginx
   ports:
-    - port: 4001
-      targetPort: libp2p-tcp
+    - port: 80
+      targetPort: 80
+#  selector:
+#    app: ipfs
+#    hex: 6kgvdnw3nwya
+#  ports:
+#    - port: 4001
+#      targetPort: libp2p-tcp
