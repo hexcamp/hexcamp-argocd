@@ -16,3 +16,4 @@ spec:
       targetPort: libp2p-tcp
   externalIPs:
     - 192.168.1.251
+    - 10.0.2.7
