@@ -38,7 +38,7 @@ spec:
             #ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001/ws" ]'
             ipfs config Addresses.API '/ip4/0.0.0.0/tcp/5001'
             ipfs config Addresses.Gateway '/ip4/0.0.0.0/tcp/8080'
-            #ipfs config --json Addresses.Announce '[ "/dns4/6kgvdnw3nw2q.seahex.org/tcp/443/wss" ]'
+            ipfs config --json Addresses.Announce '[ "/dns4/6kgvdnw3nwya.seahex.org/tcp/4001", "/dns4/6kgvdnw3nwya.seahex.org/udp/4001/quic-v1" ]'
             ipfs config --json Datastore.StorageMax '"20GB"'
             ipfs config --json Gateway.NoFetch true
             ipfs config --json Gateway.NoDNSLink false
