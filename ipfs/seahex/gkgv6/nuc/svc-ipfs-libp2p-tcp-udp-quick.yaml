@@ -1,13 +1,18 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ipfs-libp2p-udp-quic
+  name: ipfs-libp2p-tcp-udp-quic
   namespace: gkgv6
 spec:
   selector:
     app: ipfs
     hex: 6kgvdnw3nwya
   ports:
+    - name: libp2p-tcp
+      port: 4002
+      protocol: TCP
+      targetPort: libp2p-tcp
+      nodePort: 30402
     - name: libp2p-udp-quic
       port: 4002
       protocol: UDP
