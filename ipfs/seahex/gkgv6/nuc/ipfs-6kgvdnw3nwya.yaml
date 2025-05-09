@@ -30,7 +30,6 @@ spec:
             dd if=/dev/zero of=/data/ipfs/empty.bin bs=1M count=1000
             #while true; do sleep 50; done
             if [ ! -f /data/ipfs/config ]; then
-              #ipfs init --profile=server
               ipfs init
             fi
             cat /data/ipfs/config | sed "s,\"PeerID\": \".*\",\"PeerID\": \"$IPFS_PEER_ID\"," > /data/ipfs/config2
@@ -47,7 +46,7 @@ spec:
             #ipfs config --json Swarm.Transports.Network.QUIC false
             #ipfs config --json Swarm.Transports.Network.WebTransport false
             #ipfs config --json Swarm.Transports.Network.WebRTCDirect false
-            #ipfs config --json Datastore.StorageMax '"20GB"'
+            ipfs config --json Datastore.StorageMax '"20GB"'
             #ipfs config --json Gateway.NoFetch true
             ipfs config --json Gateway.NoFetch false
             ipfs config --json Gateway.NoDNSLink false
