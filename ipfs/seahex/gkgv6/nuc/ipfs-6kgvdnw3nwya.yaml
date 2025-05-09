@@ -28,23 +28,24 @@ spec:
           - |
             set -e
             dd if=/dev/zero of=/data/ipfs/empty.bin bs=1M count=1000
+            #while true; do sleep 50; done
             if [ ! -f /data/ipfs/config ]; then
-            #  ipfs init --profile=server
-               ipfs init
+              ipfs init --profile=server
             fi
             cat /data/ipfs/config | sed "s,\"PeerID\": \".*\",\"PeerID\": \"$IPFS_PEER_ID\"," > /data/ipfs/config2
             cat /data/ipfs/config2 | sed "s,\"PrivKey\": \".*\",\"PrivKey\": \"$IPFS_PRIVATE_KEY\"," > /data/ipfs/config
             rm -f /data/ipfs/config2
             #while true; do sleep 50; done
-            ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001", "/ip4/0.0.0.0/udp/4001/quic-v1" ]'
-            #ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001/ws" ]'
+            #ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001", "/ip4/0.0.0.0/udp/4001/quic-v1" ]'
+            ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001/ws" ]'
             ipfs config Addresses.API '/ip4/0.0.0.0/tcp/5001'
             ipfs config Addresses.Gateway '/ip4/0.0.0.0/tcp/8080'
             #ipfs config --json Addresses.Announce '[ "/dns4/6kgvdnw3nwya.seahex.org/tcp/4001", "/dns4/6kgvdnw3nwya.seahex.org/udp/4001/quic-v1" ]'
             #ipfs config --json Addresses.Announce '[ "/ip4/144.217.233.191/tcp/4001", "/ip4/144.217.233.191/udp/4001/quic-v1" ]'
             #ipfs config --json Addresses.Announce '[ "/ip4/192.168.1.251/tcp/4001", "/ip4/192.168.1.251/udp/4001/quic-v1" ]'
             #ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001", "/ip4/192.168.1.251/udp/4001/quic-v1" ]'
-            ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001/ws" ]'
+            #ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001/ws" ]'
+            ipfs config --json Addresses.AppendAnnounce '[ "/ip4/144.217.233.191/tcp/30401/ws/p2p/12D3KooWEf4FNnKdifr8dsnXpbA6CANrS4m6G1g93vNUDexvUxMX" ]'
             #ipfs config --json AutoNAT.ServiceMode false
             ipfs config --json AutoNAT.ServiceMode '"disabled"'
             ipfs config --json Swarm.RelayClient.Enabled false

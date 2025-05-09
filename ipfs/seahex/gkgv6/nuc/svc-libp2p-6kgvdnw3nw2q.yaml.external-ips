@@ -4,13 +4,17 @@ metadata:
   name: ipfs-libp2p-6kgvdnw3nw2q
   namespace: gkgv6
 spec:
+#  selector:
+#    app: nginx
+#  ports:
+#    - port: 4001
+#      targetPort: 80
   selector:
     app: ipfs
     hex: 6kgvdnw3nwya
   ports:
-    - name: libp2p-tcp
-      port: 4001
-      protocol: TCP
+    - port: 4001
       targetPort: libp2p-tcp
-      nodePort: 30401
-  type: NodePort
+  externalIPs:
+    - 192.168.1.251
+    - 10.0.2.7

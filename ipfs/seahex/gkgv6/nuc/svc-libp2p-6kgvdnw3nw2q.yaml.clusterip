@@ -8,9 +8,6 @@ spec:
     app: ipfs
     hex: 6kgvdnw3nwya
   ports:
-    - name: libp2p-tcp
-      port: 4001
+    - port: 4001
       protocol: TCP
       targetPort: libp2p-tcp
-      nodePort: 30401
-  type: NodePort
