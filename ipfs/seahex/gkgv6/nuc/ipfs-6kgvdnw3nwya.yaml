@@ -28,9 +28,10 @@ spec:
           - |
             set -e
             dd if=/dev/zero of=/data/ipfs/empty.bin bs=1M count=1000
-            #if [ ! -f /data/ipfs/config ]; then
+            if [ ! -f /data/ipfs/config ]; then
             #  ipfs init --profile=server
-            #fi
+               ipfs init
+            fi
             cat /data/ipfs/config | sed "s,\"PeerID\": \".*\",\"PeerID\": \"$IPFS_PEER_ID\"," > /data/ipfs/config2
             cat /data/ipfs/config2 | sed "s,\"PrivKey\": \".*\",\"PrivKey\": \"$IPFS_PRIVATE_KEY\"," > /data/ipfs/config
             rm -f /data/ipfs/config2
