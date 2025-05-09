@@ -28,50 +28,34 @@ spec:
           - |
             set -e
             dd if=/dev/zero of=/data/ipfs/empty.bin bs=1M count=1000
-            if [ ! -f /data/ipfs/config ]; then
-              ipfs init --profile=server
-            fi
+            #if [ ! -f /data/ipfs/config ]; then
+            #  ipfs init --profile=server
+            #fi
             cat /data/ipfs/config | sed "s,\"PeerID\": \".*\",\"PeerID\": \"$IPFS_PEER_ID\"," > /data/ipfs/config2
             cat /data/ipfs/config2 | sed "s,\"PrivKey\": \".*\",\"PrivKey\": \"$IPFS_PRIVATE_KEY\"," > /data/ipfs/config
             rm -f /data/ipfs/config2
             #while true; do sleep 50; done
-            #ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001", "/ip4/0.0.0.0/udp/4001/quic-v1" ]'
+            ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001", "/ip4/0.0.0.0/udp/4001/quic-v1" ]'
+            #ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001/ws" ]'
             ipfs config Addresses.API '/ip4/0.0.0.0/tcp/5001'
             ipfs config Addresses.Gateway '/ip4/0.0.0.0/tcp/8080'
             #ipfs config --json Addresses.Announce '[ "/dns4/6kgvdnw3nwya.seahex.org/tcp/4001", "/dns4/6kgvdnw3nwya.seahex.org/udp/4001/quic-v1" ]'
             #ipfs config --json Addresses.Announce '[ "/ip4/144.217.233.191/tcp/4001", "/ip4/144.217.233.191/udp/4001/quic-v1" ]'
+            #ipfs config --json Addresses.Announce '[ "/ip4/192.168.1.251/tcp/4001", "/ip4/192.168.1.251/udp/4001/quic-v1" ]'
+            #ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001", "/ip4/192.168.1.251/udp/4001/quic-v1" ]'
+            ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001/ws" ]'
+            #ipfs config --json AutoNAT.ServiceMode false
+            ipfs config --json AutoNAT.ServiceMode '"disabled"'
+            ipfs config --json Swarm.RelayClient.Enabled false
+            ipfs config --json Swarm.Transports.Network.Relay false
+            ipfs config --json Swarm.Transports.Network.QUIC false
+            ipfs config --json Swarm.Transports.Network.WebTransport false
+            ipfs config --json Swarm.Transports.Network.WebRTCDirect false
             ipfs config --json Datastore.StorageMax '"20GB"'
-            ipfs config --json Gateway.NoFetch true
+            #ipfs config --json Gateway.NoFetch true
+            ipfs config --json Gateway.NoFetch false
             ipfs config --json Gateway.NoDNSLink false
             #ipfs config --json Gateway.PublicGateways '{}'
-            ipfs config --json Peering.Peers '[
-              {
-                "Addrs": [
-                  "/dns4/pq-pop-de-1.infra.hex.camp/tcp/4001",
-                  "/dns4/pq-pop-de-1.infra.hex.camp/udp/4001/quic"
-                ],
-                "ID": "12D3KooWD2T7suwtg7aWPDeSUTEBeZhmzqbbfcqgucxpukd6Gpu3"
-              },
-              {
-                "Addrs": [
-                  "/dns4/pq-pop-sg-1.infra.hex.camp/tcp/4001",
-                  "/dns4/pq-pop-sg-1.infra.hex.camp/udp/4001/quic"
-                ],
-                "ID": "12D3KooWQLJVGiTvoZEzYBXjnKWxEBAgtmZ1ehMGX5Raxs5wQu2A"
-              },
-              {
-                "Addrs": [
-                  "/dns4/pq-pop-de-1.infra.hex.camp/tcp/4001/p2p/12D3KooWD2T7suwtg7aWPDeSUTEBeZhmzqbbfcqgucxpukd6Gpu3/p2p-circuit"
-                ],
-                "ID": "12D3KooWL2NnxBrovYsrGNhJriCfaxWwxykpMxMzisFe9ZycyrCm"
-              },
-              {
-                "Addrs": [
-                  "/dns4/pq-pop-sg-1.infra.hex.camp/tcp/4001/p2p/12D3KooWQLJVGiTvoZEzYBXjnKWxEBAgtmZ1ehMGX5Raxs5wQu2A/p2p-circuit"
-                ],
-                "ID": "12D3KooWKLybeku2gRn1GzUs5PaULT7UQR2vt7HiRcMP15wFhdqS"
-              }
-            ]'
             sh -c "sleep 20; ipfs log level all info" &
             #sh -c "sleep 20; ipfs log level core/server debug" &
             ipfs repo gc
