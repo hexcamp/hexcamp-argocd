@@ -45,7 +45,7 @@ spec:
             #ipfs config --json Addresses.Announce '[ "/ip4/192.168.1.251/tcp/4001", "/ip4/192.168.1.251/udp/4001/quic-v1" ]'
             #ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001", "/ip4/192.168.1.251/udp/4001/quic-v1" ]'
             #ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001/ws" ]'
-            ipfs config --json Addresses.AppendAnnounce '[ "/ip4/144.217.233.191/tcp/30401/ws/p2p/12D3KooWEf4FNnKdifr8dsnXpbA6CANrS4m6G1g93vNUDexvUxMX" ]'
+            ipfs config --json Addresses.AppendAnnounce '[ "/ip4/144.217.233.191/tcp/30401/ws" ]'
             #ipfs config --json AutoNAT.ServiceMode false
             ipfs config --json AutoNAT.ServiceMode '"disabled"'
             ipfs config --json Swarm.RelayClient.Enabled false
