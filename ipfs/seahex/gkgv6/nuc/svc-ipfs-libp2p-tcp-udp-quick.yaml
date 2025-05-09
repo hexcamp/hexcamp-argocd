@@ -8,14 +8,12 @@ spec:
     app: ipfs
     hex: 6kgvdnw3nwya
   ports:
-    - name: libp2p-tcp
-      port: 4002
-      protocol: TCP
-      targetPort: libp2p-tcp
-      nodePort: 30402
-    - name: libp2p-udp-quic
-      port: 4002
+    - name: ipfs-libp2p-udp-quic
+      port: 30402
       protocol: UDP
-      targetPort: libp2p-udp-quic
-      nodePort: 30402
-  type: NodePort
+      targetPort: 30402
+    - name: ipfs-libp2p-tcp
+      port: 30402
+      protocol: TCP
+      targetPort: 30402
+  type: LoadBalancer

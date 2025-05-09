@@ -37,24 +37,17 @@ spec:
             cat /data/ipfs/config2 | sed "s,\"PrivKey\": \".*\",\"PrivKey\": \"$IPFS_PRIVATE_KEY\"," > /data/ipfs/config
             rm -f /data/ipfs/config2
             #while true; do sleep 50; done
-            #ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001", "/ip4/0.0.0.0/udp/4001/quic-v1" ]'
-            ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/4001/ws", "/ip4/0.0.0.0/tcp/4002", "/ip4/0.0.0.0/udp/4002/quic-v1" ]'
+            ipfs config --json Addresses.Swarm '[ "/ip4/0.0.0.0/tcp/30401/ws", "/ip4/0.0.0.0/tcp/30402", "/ip4/0.0.0.0/udp/30402/quic-v1", "/ip4/0.0.0.0/udp/30402/quic-v1/webtransport" ]'
             ipfs config Addresses.API '/ip4/0.0.0.0/tcp/5001'
             ipfs config Addresses.Gateway '/ip4/0.0.0.0/tcp/8080'
-            #ipfs config --json Addresses.Announce '[ "/dns4/6kgvdnw3nwya.seahex.org/tcp/4001", "/dns4/6kgvdnw3nwya.seahex.org/udp/4001/quic-v1" ]'
-            #ipfs config --json Addresses.Announce '[ "/ip4/144.217.233.191/tcp/4001", "/ip4/144.217.233.191/udp/4001/quic-v1" ]'
-            #ipfs config --json Addresses.Announce '[ "/ip4/192.168.1.251/tcp/4001", "/ip4/192.168.1.251/udp/4001/quic-v1" ]'
-            #ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001", "/ip4/192.168.1.251/udp/4001/quic-v1" ]'
-            #ipfs config --json Addresses.AppendAnnounce '[ "/ip4/192.168.1.251/tcp/4001/ws" ]'
-            ipfs config --json Addresses.AppendAnnounce '[ "/dns4/ovh-front-nuc.infra.hex.camp/tcp/30401/ws", "/dns4/ovh-front-nuc.infra.hex.camp/tcp/30402", "/dns4/ovh-front-nuc.infra.hex.camp/udp/30402/quic-v1" ]'
-            #ipfs config --json AutoNAT.ServiceMode false
-            ipfs config --json AutoNAT.ServiceMode '"disabled"'
-            ipfs config --json Swarm.RelayClient.Enabled false
-            ipfs config --json Swarm.Transports.Network.Relay false
-            ipfs config --json Swarm.Transports.Network.QUIC false
-            ipfs config --json Swarm.Transports.Network.WebTransport false
-            ipfs config --json Swarm.Transports.Network.WebRTCDirect false
-            ipfs config --json Datastore.StorageMax '"20GB"'
+            ipfs config --json Addresses.AppendAnnounce '[ "/dns4/ovh-front-nuc.infra.hex.camp/tcp/30401/ws", "/dns4/ovh-front-nuc.infra.hex.camp/tcp/30402" ]'
+            #ipfs config --json AutoNAT.ServiceMode '"disabled"'
+            #ipfs config --json Swarm.RelayClient.Enabled false
+            #ipfs config --json Swarm.Transports.Network.Relay false
+            #ipfs config --json Swarm.Transports.Network.QUIC false
+            #ipfs config --json Swarm.Transports.Network.WebTransport false
+            #ipfs config --json Swarm.Transports.Network.WebRTCDirect false
+            #ipfs config --json Datastore.StorageMax '"20GB"'
             #ipfs config --json Gateway.NoFetch true
             ipfs config --json Gateway.NoFetch false
             ipfs config --json Gateway.NoDNSLink false
@@ -73,13 +66,13 @@ spec:
              name: data
         ports:
           - protocol: TCP
-            containerPort: 4001
+            containerPort: 30401
             name: libp2p-tcp-ws
           - protocol: TCP
-            containerPort: 4002
+            containerPort: 30402
             name: libp2p-tcp
           - protocol: UDP
-            containerPort: 4002
+            containerPort: 30402
             name: libp2p-udp-quic
           - containerPort: 5001
             name: api

@@ -9,8 +9,7 @@ spec:
     hex: 6kgvdnw3nwya
   ports:
     - name: libp2p-tcp-ws
-      port: 4001
+      port: 30401
       protocol: TCP
       targetPort: libp2p-tcp-ws
-      nodePort: 30401
-  type: NodePort
+  type: LoadBalancer
