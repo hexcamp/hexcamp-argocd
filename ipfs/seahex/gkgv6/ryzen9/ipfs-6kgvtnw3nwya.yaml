@@ -45,22 +45,22 @@ spec:
             ipfs config --json Gateway.NoFetch false
             ipfs config --json Gateway.NoDNSLink false
             #ipfs config --json Gateway.PublicGateways '{}'
-            #ipfs config --json Peering.Peers '[
-            #  {
-            #    "Addrs": [
-            #      "/dns4/pq-pop-de-1.infra.hex.camp/tcp/4001",
-            #      "/dns4/pq-pop-de-1.infra.hex.camp/udp/4001/quic"
-            #    ],
-            #    "ID": "12D3KooWD2T7suwtg7aWPDeSUTEBeZhmzqbbfcqgucxpukd6Gpu3"
-            #  },
-            #  {
-            #    "Addrs": [
-            #      "/dns4/pq-pop-sg-1.infra.hex.camp/tcp/4001",
-            #      "/dns4/pq-pop-sg-1.infra.hex.camp/udp/4001/quic"
-            #    ],
-            #    "ID": "12D3KooWQLJVGiTvoZEzYBXjnKWxEBAgtmZ1ehMGX5Raxs5wQu2A"
-            #  }
-            #]'
+            ipfs config --json Peering.Peers '[
+              {
+                "Addrs": [
+                  "/dns4/ovh-front-nuc.infra.hex.camp/tcp/30401/ws",
+                  "/dns4/ovh-front-nuc.infra.hex.camp/tcp/30402"
+                ],
+                "ID": "12D3KooWEf4FNnKdifr8dsnXpbA6CANrS4m6G1g93vNUDexvUxMX"
+              },
+              {
+                "Addrs": [
+                  "/dns4/ovh-front-nuc2.infra.hex.camp/tcp/30401/ws",
+                  "/dns4/ovh-front-nuc2.infra.hex.camp/tcp/30402"
+                ],
+                "ID": "12D3KooWL2NnxBrovYsrGNhJriCfaxWwxykpMxMzisFe9ZycyrCm"
+              }
+            ]'
             sh -c "sleep 20; ipfs log level all info" &
             #sh -c "sleep 20; ipfs log level core/server debug" &
             ipfs repo gc
