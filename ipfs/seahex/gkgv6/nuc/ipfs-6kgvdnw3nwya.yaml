@@ -51,6 +51,22 @@ spec:
             ipfs config --json Gateway.NoFetch false
             ipfs config --json Gateway.NoDNSLink false
             #ipfs config --json Gateway.PublicGateways '{}'
+            ipfs config --json Peering.Peers '[
+              {
+                "Addrs": [
+                  "/dns4/ovh-front-nuc2.infra.hex.camp/tcp/30401/ws",
+                  "/dns4/ovh-front-nuc2.infra.hex.camp/tcp/30402"
+                ],
+                "ID": "12D3KooWL2NnxBrovYsrGNhJriCfaxWwxykpMxMzisFe9ZycyrCm"
+              },
+              {
+                "Addrs": [
+                  "/dns4/ovh-front-ryzen9.infra.hex.camp/tcp/30401/ws",
+                  "/dns4/ovh-front-ryzen9.infra.hex.camp/tcp/30402"
+                ],
+                "ID": "12D3KooWKLybeku2gRn1GzUs5PaULT7UQR2vt7HiRcMP15wFhdqS"
+              }
+            ]'
             sh -c "sleep 20; ipfs log level all info" &
             #sh -c "sleep 20; ipfs log level core/server debug" &
             ipfs repo gc
