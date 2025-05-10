@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ipfs-libp2p-ws
+  namespace: gkgv6
+spec:
+  selector:
+    app: ipfs
+    hex: 6kgvtnw3nwya
+  ports:
+    - name: libp2p-tcp-ws
+      port: 30401
+      protocol: TCP
+      targetPort: libp2p-tcp-ws
+  type: LoadBalancer
