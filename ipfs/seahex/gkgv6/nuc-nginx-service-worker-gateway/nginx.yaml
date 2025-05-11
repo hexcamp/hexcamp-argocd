@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: ipfs-service-worker-gateway
+  namespace: gkgv6
+spec:
+  template:
+    spec:
+      containers:
+      - image: nginx
+        ports:
+        - containerPort: 80
