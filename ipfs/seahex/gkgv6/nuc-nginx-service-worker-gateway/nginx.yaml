@@ -10,3 +10,10 @@ spec:
       - image: nginx
         ports:
         - containerPort: 80
+        volumeMounts:
+        - mountPath: "/data"
+          name: data-vol
+      volumes:
+      - name: data-vol
+        persistentVolumeClaim:
+          claimName: ipfs-service-worker-gateway
