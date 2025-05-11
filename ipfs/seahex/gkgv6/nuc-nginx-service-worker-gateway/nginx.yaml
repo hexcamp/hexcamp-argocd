@@ -11,7 +11,7 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - mountPath: "/data"
+        - mountPath: "/usr/share/nginx/html"
           name: data-vol
       volumes:
       - name: data-vol
