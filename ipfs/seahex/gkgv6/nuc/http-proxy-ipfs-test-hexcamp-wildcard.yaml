@@ -11,7 +11,7 @@ spec:
   routes:
   - conditions:
       - prefix: /
-    permitInsecure: true
+    permitInsecure: false
     services:
     - name: ipfs-gateway-6kgvdnw3nwya
       port: 8080
