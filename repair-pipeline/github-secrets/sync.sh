@@ -4,4 +4,4 @@
 
 CLUSTER=ryzen9
 
-argocd app sync $CLUSTER-repair-aws-secrets
+argocd app sync $CLUSTER-repair-github-secrets

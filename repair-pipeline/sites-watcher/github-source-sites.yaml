@@ -1,0 +1,22 @@
+apiVersion: sources.knative.dev/v1alpha1
+kind: GitHubSource
+metadata:
+  name: github-source-sites
+  namespace: repair
+spec:
+  eventTypes:
+    - pull_request
+  ownerAndRepository: hexcamp/hexcamp-coredns-sites
+  accessToken:
+    secretKeyRef:
+      name: github
+      key: ACCESS_TOKEN
+  secretToken:
+    secretKeyRef:
+      name: github
+      key: SECRET_TOKEN
+  sink:
+    ref:
+      apiVersion: serving.knative.dev/v1
+      kind: Service
+      name: github-message-dumper
