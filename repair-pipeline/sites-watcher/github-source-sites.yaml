@@ -5,7 +5,7 @@ metadata:
   namespace: repair
 spec:
   eventTypes:
-    - commit
+    - push
   ownerAndRepository: hexcamp/hexcamp-coredns-sites
   accessToken:
     secretKeyRef:
