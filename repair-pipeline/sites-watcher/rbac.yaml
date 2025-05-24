@@ -22,7 +22,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: tekton-robot
-  namespace: default
+  namespace: repair
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
