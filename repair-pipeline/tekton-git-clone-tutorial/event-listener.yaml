@@ -6,7 +6,5 @@ spec:
   serviceAccountName: tekton-robot
   triggers:
     - name: clone-read-trigger 
-      bindings:
-      - ref: clone-read-binding
       template:
         ref: clone-read-template
