@@ -1,0 +1,6 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: clone-read-binding
+spec: 
+  params:

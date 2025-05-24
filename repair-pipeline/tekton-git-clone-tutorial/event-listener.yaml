@@ -1,0 +1,12 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+  name: clone-read-listener
+spec:
+  serviceAccountName: tekton-robot
+  triggers:
+    - name: clone-read-trigger 
+      bindings:
+      - ref: clone-read-binding
+      template:
+        ref: clone-read-template

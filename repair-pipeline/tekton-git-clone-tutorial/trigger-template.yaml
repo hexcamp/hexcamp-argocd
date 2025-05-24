@@ -1,0 +1,31 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: clone-read-run-template
+spec:
+  params:
+  - name: username
+    default: "Kubernetes"
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1beta1
+    kind: PipelineRun
+    metadata:
+      generateName: clone-read-run-
+    spec:
+      pipelineRef:
+        name: clone-read
+      podTemplate:
+        securityContext:
+          fsGroup: 65532
+      workspaces:
+      - name: shared-data
+        volumeClaimTemplate:
+          spec:
+            accessModes:
+            - ReadWriteOnce
+            resources:
+              requests:
+                storage: 1Gi
+      params:
+      - name: repo-url
+        value: https://github.com/hexcamp/hexcamp-coredns-sites.git
