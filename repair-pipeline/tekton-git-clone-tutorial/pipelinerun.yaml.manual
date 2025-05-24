@@ -17,9 +17,9 @@ spec:
         resources:
           requests:
             storage: 1Gi
-  - name: git-credentials
-    secret:
-      secretName: git-credentials
+#  - name: git-credentials
+#    secret:
+#      secretName: git-credentials
   params:
   - name: repo-url
     value: git@github.com:tektoncd/website.git
