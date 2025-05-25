@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: clone-read-run-template
+  name: clone-read-template
 spec:
   params:
   - name: username
