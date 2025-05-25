@@ -20,4 +20,3 @@ spec:
       apiVersion: v1
       kind: Service
       name: el-clone-read-listener
-      url: http://el-clone-read-listener.repair.svc.cluster.local:8080

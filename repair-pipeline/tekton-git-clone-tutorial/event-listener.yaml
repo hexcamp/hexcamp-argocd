@@ -8,3 +8,6 @@ spec:
     - name: clone-read-trigger 
       template:
         ref: clone-read-template
+  resources:
+    kubernetesResource:
+      servicePort: 80
