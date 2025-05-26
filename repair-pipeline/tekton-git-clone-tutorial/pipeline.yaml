@@ -15,6 +15,11 @@ spec:
     description: | 
       This workspace contains the cloned repo files, so they can be read by the
       next task.
+  - name: sites
+    description: | 
+      PVC for the output sites
+    persistentVolumeClaim:
+      claimName: sites
 #  - name: git-credentials
 #    description: My ssh credentials
   tasks:
@@ -36,3 +41,12 @@ spec:
     workspaces:
     - name: source
       workspace: shared-data
+  - name: copy-files
+    runAfter: ["fetch-source"]
+    taskRef:
+      name: copy-files
+    workspaces:
+    - name: source
+      workspace: shared-data
+    - name: sites
+      workspace: sites
