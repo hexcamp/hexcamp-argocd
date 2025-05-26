@@ -22,7 +22,6 @@ spec:
         volumeMounts:
         - mountPath: "/data"
           name: data-vol
-        volumeMounts:
         - mountPath: "/sites"
           name: sites
         livenessProbe:
