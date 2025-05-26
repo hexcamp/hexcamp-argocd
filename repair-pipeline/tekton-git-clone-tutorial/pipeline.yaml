@@ -18,8 +18,6 @@ spec:
   - name: sites
     description: | 
       PVC for the output sites
-#    persistentVolumeClaim:
-#      claimName: sites
 #  - name: git-credentials
 #    description: My ssh credentials
   tasks:
@@ -46,7 +44,5 @@ spec:
     taskRef:
       name: copy-files
     workspaces:
-    - name: source
-      workspace: shared-data
     - name: sites
       workspace: sites
