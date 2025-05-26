@@ -40,9 +40,11 @@ spec:
     - name: source
       workspace: shared-data
   - name: copy-files
-    runAfter: ["fetch-source"]
+    runAfter: ["show-readme"]
     taskRef:
       name: copy-files
     workspaces:
+    - name: source
+      workspace: shared-data
     - name: sites
       workspace: sites

@@ -5,11 +5,13 @@ metadata:
 spec:
   description: Copy CSV files to sites PVC
   workspaces:
+  - name: source
   - name: sites
   steps:
   - name: copy
     image: alpine:latest
     script: | 
       #!/usr/bin/env sh
+      echo Source dir: $(workspaces.source.path)
       echo Sites dir: $(workspaces.sites.path)
       #cp $(workspaces.source.path)/jim.csv $(workspaces.sites.path)
