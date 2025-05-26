@@ -1,0 +1,16 @@
+apiVersion: eventing.knative.dev/v1
+kind: Trigger
+metadata:
+  name: ip-collector
+  namespace: repair
+spec:
+  broker: broker
+  filter:
+    attributes:
+      type: camp.hex.ce.tofu-ips
+  subscriber:
+    ref:
+      apiVersion: v1
+      kind: Service
+      name: ip-collector
+      namespace: repair
