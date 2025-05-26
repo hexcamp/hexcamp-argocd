@@ -18,8 +18,8 @@ spec:
   - name: sites
     description: | 
       PVC for the output sites
-    persistentVolumeClaim:
-      claimName: sites
+#    persistentVolumeClaim:
+#      claimName: sites
 #  - name: git-credentials
 #    description: My ssh credentials
   tasks:

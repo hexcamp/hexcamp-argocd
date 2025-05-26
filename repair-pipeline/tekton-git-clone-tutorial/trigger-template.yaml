@@ -26,6 +26,9 @@ spec:
             resources:
               requests:
                 storage: 1Gi
+      - name: sites
+        persistentVolumeClaim:
+          claimName: sites
       params:
       - name: repo-url
         value: https://github.com/hexcamp/hexcamp-coredns-sites.git
