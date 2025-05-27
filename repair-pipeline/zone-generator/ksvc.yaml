@@ -24,7 +24,9 @@ spec:
         - mountPath: "/data"
           name: data-vol
         - mountPath: "/sites"
-          name: sites
+          name: sites-vol
+        - mountPath: "/ips"
+          name: ips-vol
         livenessProbe:
           httpGet:
             path: /health/liveness
@@ -39,8 +41,11 @@ spec:
       - name: data-vol
         persistentVolumeClaim:
           claimName: repair-hexcamp-coredns
-      - name: sites
+      - name: sites-vol
         persistentVolumeClaim:
           claimName: sites
+      - name: ips-vol
+        persistentVolumeClaim:
+          claimName: ips
       enableServiceLinks: false
       timeoutSeconds: 300
