@@ -1,6 +1,6 @@
 #! /bin/sh
 
-set -euxo pipefail
+set -eux
 
 echo "Mock process-cloudevent.sh"
 touch /ips/ips.json
