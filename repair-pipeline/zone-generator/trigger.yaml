@@ -16,4 +16,4 @@ spec:
       kind: Service
       name: zone-generator
   delivery:
-    timeout: 300
+    timeout: "300"
