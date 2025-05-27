@@ -4,8 +4,8 @@ set -eux
 
 echo "Mock process-cloudevent.sh"
 touch /ips/ips.json
-OLD=$(md5sum /ips/ips.json)
-NEW=$(md5sum /tmp/cloudevent.json)
+OLD=$(md5sum /ips/ips.json | cut -f1 -d " ")
+NEW=$(md5sum /tmp/cloudevent.json | cut -f1 -d " ")
 
 echo "Old: $OLD New: $OLD"
 if [ "$OLD" != "$NEW" ]; then
