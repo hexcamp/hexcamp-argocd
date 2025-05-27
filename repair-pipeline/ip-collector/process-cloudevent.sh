@@ -7,7 +7,7 @@ touch /ips/ips.json
 OLD=$(md5sum /ips/ips.json | cut -f1 -d " ")
 NEW=$(md5sum /tmp/cloudevent.json | cut -f1 -d " ")
 
-echo "Old: $OLD New: $OLD"
+echo "Old: $OLD New: $NEW"
 if [ "$OLD" != "$NEW" ]; then
   cp /tmp/cloudevent.json /ips/ips.json
   echo FIXME: Call Sink
