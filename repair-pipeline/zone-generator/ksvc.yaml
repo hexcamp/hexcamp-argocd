@@ -19,6 +19,7 @@ spec:
         - secretRef:
             name: aws-credentials
         image: ghcr.io/hexcamp/hexcamp-knative-images/zone-generator-image@sha256:33bf1796b76f06d7846824ec04d0e9f1ef9e6f3d08e350b552e70c2d27e7d859
+        command: [ "/cnb/process/function" ]
         volumeMounts:
         - mountPath: "/data"
           name: data-vol
