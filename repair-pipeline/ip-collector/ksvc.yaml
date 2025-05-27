@@ -12,6 +12,7 @@ spec:
       containerConcurrency: 0
       containers:
       - name: user-container
+        command: [ "/cnb/process/function" ]
         env:
         - name: PATH
           value: "/root/.local/bin:/cnb/process:/cnb/lifecycle:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/scripts"
