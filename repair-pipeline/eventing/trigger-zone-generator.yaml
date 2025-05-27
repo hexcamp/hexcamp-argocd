@@ -6,6 +6,10 @@ metadata:
   namespace: repair
 spec:
   broker: broker
+  filters:
+    - any:
+      - exact:
+          type: camp.hex.ce.ips-updated
   subscriber:
     ref:
       apiVersion: v1
