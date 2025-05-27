@@ -15,3 +15,5 @@ spec:
       apiVersion: v1
       kind: Service
       name: zone-generator
+  delivery:
+    timeout: 3m
