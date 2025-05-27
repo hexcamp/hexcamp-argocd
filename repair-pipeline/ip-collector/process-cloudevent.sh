@@ -2,8 +2,12 @@
 
 set -eux
 
-echo "Mock process-cloudevent.sh"
-touch /ips/ips.json
+echo "Running process-cloudevent.sh, checking IPs from CloudEvent"
+
+if [ ! -f /ips/ips.json ]; then
+  touch /ips/ips.json
+fi
+
 OLD=$(md5sum /ips/ips.json | cut -f1 -d " ")
 NEW=$(md5sum /tmp/cloudevent.json | cut -f1 -d " ")
 
