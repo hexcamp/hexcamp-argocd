@@ -37,6 +37,6 @@ spec:
           claimName: ips
       - name: scripts-vol
         configMap:
-          name: scripts-data
+          name: scripts
       enableServiceLinks: false
       timeoutSeconds: 300
