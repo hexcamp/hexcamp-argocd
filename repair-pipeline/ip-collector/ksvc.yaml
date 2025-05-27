@@ -14,13 +14,13 @@ spec:
       - name: user-container
         env:
         - name: PATH
-          value: "/root/.local/bin:/cnb/process:/cnb/lifecycle:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/data/hexcamp-coredns"
+          value: "/root/.local/bin:/cnb/process:/cnb/lifecycle:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/scripts"
         image: ghcr.io/hexcamp/hexcamp-knative-images/generic-cloudevent-service-image@sha256:07f081a1c6db318bfb8f004011004d84ba675d0076c45db80ee4135b24a119a8
         volumeMounts:
-        - mountPath: "/data"
-          name: data-vol
-        - mountPath: "/foo"
-          name: foo-vol
+        - mountPath: "/ips"
+          name: ips-vol
+        - mountPath: "/scripts"
+          name: scripts-vol
         livenessProbe:
           httpGet:
             path: /health/liveness
@@ -32,11 +32,11 @@ spec:
           successThreshold: 1
         resources: {}
       volumes:
-      - name: data-vol
+      - name: ips-vol
         persistentVolumeClaim:
           claimName: ips
-      - name: foo-vol
+      - name: scripts-vol
         configMap:
-          name: foo-data
+          name: scripts-data
       enableServiceLinks: false
       timeoutSeconds: 300

@@ -6,8 +6,8 @@ resources:
   - pvc.yaml
   - trigger.yaml
 configMapGenerator:
-  - name: foo-data
+  - name: scripts
     files:
-      - foo.json
+      - process-cloudevent.sh
 generatorOptions:
   disableNameSuffixHash: true
