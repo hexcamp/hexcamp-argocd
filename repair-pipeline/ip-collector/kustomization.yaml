@@ -5,6 +5,7 @@ resources:
   - ksvc.yaml
   - pvc.yaml
   - trigger.yaml
+  - sink-binding.yaml
 configMapGenerator:
   - name: scripts
     files:

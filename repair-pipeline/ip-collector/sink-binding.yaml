@@ -1,0 +1,17 @@
+apiVersion: sources.knative.dev/v1
+kind: SinkBinding
+metadata:
+  name: ips-collector-binding
+  namespace: repair
+spec:
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: broker
+      namespace: repair
+  subject:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    namespace: repair
+    name: ip-collector
