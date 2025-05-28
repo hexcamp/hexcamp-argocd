@@ -59,6 +59,8 @@ spec:
     params:
     - name: sink
       value: $(params.cloudevent-sink)
+    - name: eventID
+      value: 
     - name: eventType
       value: camp.hex.ce.sites-updated
     - name: data
