@@ -27,15 +27,6 @@ spec:
           name: sites-vol
         - mountPath: "/ips"
           name: ips-vol
-        livenessProbe:
-          httpGet:
-            path: /health/liveness
-            port: 0
-        readinessProbe:
-          httpGet:
-            path: /health/readiness
-            port: 0
-          successThreshold: 1
         resources: {}
       volumes:
       - name: data-vol
