@@ -32,3 +32,5 @@ spec:
       params:
       - name: repo-url
         value: https://github.com/hexcamp/hexcamp-coredns-sites.git
+      - name: cloudevent-sink
+        value: http://kafka-broker-ingress.knative-eventing.svc.cluster.local/repair/broker
