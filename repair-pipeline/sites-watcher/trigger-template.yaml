@@ -1,7 +1,7 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: clone-read-template
+  name: sites-github-clone-template
 spec:
   params:
   - name: username
@@ -10,10 +10,10 @@ spec:
   - apiVersion: tekton.dev/v1beta1
     kind: PipelineRun
     metadata:
-      generateName: clone-read-run-
+      generateName: sites-github-clone-run-
     spec:
       pipelineRef:
-        name: clone-read
+        name: sites-github-clone
       podTemplate:
         securityContext:
           fsGroup: 65532
