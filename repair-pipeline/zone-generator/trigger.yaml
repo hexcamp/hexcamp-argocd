@@ -10,6 +10,8 @@ spec:
     - any:
       - exact:
           type: camp.hex.ce.ips-updated
+      - exact:
+          type: camp.hex.ce.sites-updated
   subscriber:
     ref:
       apiVersion: v1
