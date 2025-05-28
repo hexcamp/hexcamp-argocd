@@ -5,7 +5,7 @@ metadata:
 spec:
   serviceAccountName: tekton-robot
   triggers:
-    - name: sites-github-clone-trigger 
+    - name: sites-github-clone-trigger
       template:
         ref: sites-github-clone-template
   resources:

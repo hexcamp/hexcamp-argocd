@@ -19,4 +19,4 @@ spec:
     ref:
       apiVersion: v1
       kind: Service
-      name: sites-github-clone-listener
+      name: el-sites-github-clone-listener
