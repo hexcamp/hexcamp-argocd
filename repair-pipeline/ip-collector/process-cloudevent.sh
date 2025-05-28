@@ -1,6 +1,6 @@
 #! /bin/sh
 
-set -eux
+set -eu
 
 echo "Running process-cloudevent.sh, checking IPs from CloudEvent"
 
@@ -21,7 +21,7 @@ ID=$(</dev/urandom tr -dc A-Za-z0-9-_ | head -c 22 || true)
 
 echo Sending event: camp.hex.ce.ips-updated $ID
 
-curl -i $K_SINK \
+curl -s $K_SINK \
   -H "Content-Type: application/json" \
   -H "Ce-Id: $ID" \
   -H "Ce-Specversion: 1.0" \
