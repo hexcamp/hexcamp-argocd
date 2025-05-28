@@ -13,7 +13,7 @@ spec:
       containers:
       - name: user-container
         command: [ "/cnb/process/function" ]
-        image: ghcr.io/hexcamp/hexcamp-knative-images/generic-cloudevent-service-image@sha256:17f27c7831b871691403da55ba11716a754cbf988cf5a87d015826a50743a47d
+        image: ghcr.io/hexcamp/hexcamp-knative-images/generic-cloudevent-service-image@sha256:87c923e3a0f93e178be65e60937b0e64bc1d3a5303c633ee3bbfa00566c18024 
         volumeMounts:
         - mountPath: "/ips"
           name: ips-vol
