@@ -4,7 +4,6 @@ metadata:
   name: github-source-sites
   namespace: repair
 spec:
-  url: https://6kgvxnw3nw2q.seahex.org
   eventTypes:
     - push
   ownerAndRepository: hexcamp/hexcamp-coredns-sites
