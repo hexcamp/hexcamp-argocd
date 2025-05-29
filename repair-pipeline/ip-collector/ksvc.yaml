@@ -8,6 +8,7 @@ spec:
     metadata:
       annotations:
         autoscaling.knative.dev/scale-to-zero-pod-retention-period: "15s"
+        networking.knative.dev/visibility: cluster-local
     spec:
       containerConcurrency: 0
       containers:
