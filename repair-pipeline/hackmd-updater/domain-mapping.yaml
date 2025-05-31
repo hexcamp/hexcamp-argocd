@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1beta1
+kind: DomainMapping
+metadata:
+  name: 6kgv3nw3nw2q.seahex.org
+  namespace: repair
+spec:
+  ref:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: hackmd-updater
+    namespace: repair
+  tls:
+    secretName: seahex-wildcard-cert
