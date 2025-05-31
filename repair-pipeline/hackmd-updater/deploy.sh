@@ -13,6 +13,6 @@ argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick
 argocd app create $CLUSTER-hackmd-updater \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd \
-  --path repair-pipeline/hackmd-updater-secrets \
+  --path repair-pipeline/hackmd-updater \
   --dest-name $CLUSTER \
   --dest-namespace repair

@@ -19,7 +19,7 @@ ACCESS_TOKEN_BASE64=$(echo -n $ACCESS_TOKEN | base64)
 argocd app create $CLUSTER-hackmd-updater-secrets \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd.git \
-  --path repair-pipeline/hackmd-updater \
+  --path repair-pipeline/hackmd-updater-secrets \
   --dest-name $CLUSTER \
   --dest-namespace repair \
   --jsonnet-tla-str accessToken=$ACCESS_TOKEN_BASE64 \
