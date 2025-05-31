@@ -1,0 +1,22 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: hackmd-updater
+  namespace: repair
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/scale-to-zero-pod-retention-period: "10m"
+    spec:
+      containerConcurrency: 0
+      containers:
+      - name: user-container
+        envFrom:
+        - secretRef:
+            name: hackmd-updater
+        image: ghcr.io/hexcamp/hackmd-updater@sha256:02b04342e793277e4f279bc083cd4aa276dd07349f8507504ddc7927bdc18568
+        volumeMounts:
+        resources: {}
+      enableServiceLinks: false
+      timeoutSeconds: 300
