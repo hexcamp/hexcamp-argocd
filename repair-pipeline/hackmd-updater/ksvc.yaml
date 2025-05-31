@@ -15,6 +15,13 @@ spec:
         envFrom:
         - secretRef:
             name: hackmd-updater
+        env:
+        - name: IPFS_API
+          value: http://ipfs-api-6kgvtnw3nwya.gkgv6.svc.cluster.local:5001/api/v0
+        - name: REPO_ORG
+          value: hexcamp
+        - name: REPO_NAME
+          value: hexcamp-coredns-sites
         image: ghcr.io/hexcamp/hackmd-updater@sha256:02b04342e793277e4f279bc083cd4aa276dd07349f8507504ddc7927bdc18568
         volumeMounts:
         resources: {}
