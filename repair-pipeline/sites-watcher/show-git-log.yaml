@@ -11,4 +11,5 @@ spec:
     image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.40.2
     script: | 
       #!/usr/bin/env sh
+      cd $(workspaces.source.path)
       git log -p -n 1
