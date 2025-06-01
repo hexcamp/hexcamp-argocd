@@ -40,6 +40,8 @@ spec:
     params:
     - name: url
       value: $(params.repo-url)
+    - name: depth
+      value: "2"
   - name: show-readme
     runAfter: ["fetch-source"]
     taskRef:
