@@ -12,4 +12,5 @@ spec:
     script: | 
       #!/usr/bin/env sh
       cd $(workspaces.source.path)
+      git config --global --add safe.directory $(workspaces.source.path)
       git log -p -n 1
