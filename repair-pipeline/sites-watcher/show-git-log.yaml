@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: show-git-log
+spec:
+  description: Show latest diff from git log
+  workspaces:
+  - name: source
+  steps:
+  - name: show-git-log
+    image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.40.2
+    script: | 
+      #!/usr/bin/env sh
+      git log -p -n 1

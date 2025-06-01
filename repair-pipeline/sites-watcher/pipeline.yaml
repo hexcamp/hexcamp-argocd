@@ -47,8 +47,15 @@ spec:
     workspaces:
     - name: source
       workspace: shared-data
-  - name: copy-files
+  - name: show-git-log
     runAfter: ["show-readme"]
+    taskRef:
+      name: show-git-log
+    workspaces:
+    - name: source
+      workspace: shared-data
+  - name: copy-files
+    runAfter: ["show-git-log"]
     taskRef:
       name: copy-files
     workspaces:
