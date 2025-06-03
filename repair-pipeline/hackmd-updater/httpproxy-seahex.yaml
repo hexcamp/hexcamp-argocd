@@ -76,3 +76,7 @@ spec:
     fqdn: 6kgv3nw3nw2q.seahex.org
     tls:
       secretName: repair/seahex-wildcard-cert
+    authorization:
+      extensionRef:
+        name: htpasswd
+        namespace: projectcontour-auth
