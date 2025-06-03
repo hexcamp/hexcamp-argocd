@@ -1,0 +1,78 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  annotations:
+    projectcontour.io/ingress.class: contour-external
+  labels:
+    contour.networking.knative.dev/domainHash: 2cfc4a04d38d51631fae587bc89f4efd5248b137
+    contour.networking.knative.dev/generation: "1"
+    contour.networking.knative.dev/parent: 6kgv3nw3nw2q.seahex.org
+    projectcontour.io/ingress.class: contour-external
+  name: 6kgv3nw3nw2q.seahex.org
+  namespace: repair
+spec:
+  routes:
+  - conditions:
+    - header:
+        exact: override
+        name: K-Network-Hash
+    enableWebsockets: true
+    permitInsecure: true
+    requestHeadersPolicy:
+      set:
+      - name: Host
+        value: hackmd-updater.repair.svc.cluster.local
+      - name: K-Network-Hash
+        value: e04cbffba7d897b9020f2f3760f84acec32178c6708ce715065a47194ac6f9bd
+    retryPolicy:
+      count: 2
+      retryOn:
+      - cancelled
+      - connect-failure
+      - refused-stream
+      - resource-exhausted
+      - retriable-status-codes
+      - reset
+    services:
+    - name: hackmd-updater
+      port: 80
+      protocol: h2c
+      requestHeadersPolicy:
+        set:
+        - name: K-Original-Host
+          value: 6kgv3nw3nw2q.seahex.org
+      weight: 100
+    timeoutPolicy:
+      idle: infinity
+      response: infinity
+  - enableWebsockets: true
+    permitInsecure: true
+    requestHeadersPolicy:
+      set:
+      - name: Host
+        value: hackmd-updater.repair.svc.cluster.local
+    retryPolicy:
+      count: 2
+      retryOn:
+      - cancelled
+      - connect-failure
+      - refused-stream
+      - resource-exhausted
+      - retriable-status-codes
+      - reset
+    services:
+    - name: hackmd-updater
+      port: 80
+      protocol: h2c
+      requestHeadersPolicy:
+        set:
+        - name: K-Original-Host
+          value: 6kgv3nw3nw2q.seahex.org
+      weight: 100
+    timeoutPolicy:
+      idle: infinity
+      response: infinity
+  virtualhost:
+    fqdn: 6kgv3nw3nw2q.seahex.org
+    tls:
+      secretName: repair/seahex-wildcard-cert
