@@ -15,6 +15,6 @@ argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick
 argocd app create $CLUSTER-certs \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd.git \
-  --path $CLUSTER-certs \
+  --path homelab-certs \
   --dest-name $CLUSTER \
   --dest-namespace default
