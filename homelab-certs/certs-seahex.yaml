@@ -1,6 +1,19 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
+  name: seahex-bare
+spec:
+  commonName: "seahex.org"
+  secretName: seahex-bare-cert
+  dnsNames:
+    - "seahex.org"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
   name: seahex-wildcard
 spec:
   commonName: "*.seahex.org"
