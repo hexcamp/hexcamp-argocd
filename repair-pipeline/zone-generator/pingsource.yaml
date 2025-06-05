@@ -1,0 +1,15 @@
+apiVersion: sources.knative.dev/v1
+kind: PingSource
+metadata:
+  name: zone-generator-ping
+  namespace: repair
+  resourceVersion: "120612389"
+spec:
+  data: '{}'
+  schedule: '*/5 * * * *'
+  sink:
+    ref:
+      apiVersion: eventing.knative.dev/v1
+      kind: Broker
+      name: broker
+      namespace: repair

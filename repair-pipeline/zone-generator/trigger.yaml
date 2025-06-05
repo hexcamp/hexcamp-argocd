@@ -14,6 +14,9 @@ spec:
           type: camp.hex.ce.ips-updated
       - exact:
           type: camp.hex.ce.sites-updated
+      - exact:
+          type: dev.knative.sources.ping
+          source: /apis/v1/namespaces/repair/pingsources/zone-generator-ping
   subscriber:
     ref:
       apiVersion: v1
