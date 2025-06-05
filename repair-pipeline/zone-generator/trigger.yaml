@@ -4,6 +4,8 @@ kind: Trigger
 metadata:
   name: zone-generator
   namespace: repair
+  annotations:
+     kafka.eventing.knative.dev/delivery.order: ordered
 spec:
   broker: broker
   filters:
