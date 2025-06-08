@@ -23,4 +23,8 @@
     region: 'akpq',
     workingDir: '/data/h3/20'
   },
+  {
+    region: 'vanhex',
+    workingDir: '/data'
+  },
 ]
