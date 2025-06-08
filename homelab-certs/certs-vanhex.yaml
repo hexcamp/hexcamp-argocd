@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: vanhex-bare
+spec:
+  commonName: "vanhex.ca"
+  secretName: vanhex-bare-cert
+  dnsNames:
+    - "vanhex.ca"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: vanhex-wildcard
+spec:
+  commonName: "*.vanhex.ca"
+  secretName: vanhex-wildcard-cert
+  dnsNames:
+    - "*.vanhex.ca"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
