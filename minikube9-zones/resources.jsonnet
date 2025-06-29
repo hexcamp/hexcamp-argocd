@@ -5,6 +5,7 @@ local ksvcCoreDNS = (import 'ksvcCoreDNS.libsonnet').ksvcCoreDNS;
 local ksvcRclone = (import 'ksvcRclone.libsonnet').ksvcRclone;
 local domainMappingRclone = (import 'domainMappingRclone.libsonnet').domainMappingRclone;
 local rclonePasswordSecret = (import 'rclonePasswordSecret.libsonnet').rclonePasswordSecret;
+local certs = (import 'certs.libsonnet').certs;
 
 local cluster = 'minikube9';
 
@@ -17,7 +18,8 @@ local resourcesForRegion(region) =
     ksvcCoreDNS(regionId, workingDir),
     ksvcRclone(regionId),
     domainMappingRclone(cluster, regionId),
-    rclonePasswordSecret(regionId)
+    rclonePasswordSecret(regionId),
+    certs(regionId),
   ];
 
 std.flatMap(resourcesForRegion, regions)
