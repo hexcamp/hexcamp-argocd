@@ -1,6 +1,5 @@
 local regions = import 'regions.libsonnet';
 local namespace = (import 'namespace.libsonnet').namespace;
-local hierarchyConfiguration = (import 'hierarchyConfiguration.libsonnet').hierarchyConfiguration;
 local pvc = (import 'pvc.libsonnet').pvc;
 local ksvcCoreDNS = (import 'ksvcCoreDNS.libsonnet').ksvcCoreDNS;
 local ksvcRclone = (import 'ksvcRclone.libsonnet').ksvcRclone;
@@ -13,7 +12,6 @@ local resourcesForRegion(region) =
   local workingDir = region.workingDir;
   [
     namespace(regionId),
-    hierarchyConfiguration(regionId),
     pvc(regionId),
     ksvcCoreDNS(regionId, workingDir),
     ksvcRclone(regionId),
