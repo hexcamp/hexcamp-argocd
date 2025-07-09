@@ -46,6 +46,27 @@ spec:
         resources:
           limits:
             memory: 1000Mi
+      - name: search-server
+        image: ghcr.io/hexcamp/stract/stract-backend@sha256:d0a227a4e0ff1935b2fd587c98be7c551d6d87fa8b651521036d8879e9ac61e0
+        command: [ "/usr/local/bin/stract" ]
+        args:
+          - search-server
+          - configs/search_server.toml
+        volumeMounts:
+           - mountPath: /data
+             name: data
+           - mountPath: /configs
+             name: configs
+        ports:
+          - protocol: TCP
+            containerPort: 3002
+            name: search-server
+          - protocol: TCP
+            containerPort: 3006
+            name: gossip
+        resources:
+          limits:
+            memory: 1000Mi
       volumes:
       - name: data
         persistentVolumeClaim:
