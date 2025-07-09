@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stract-backend-6kgrvqaeaaaa
+  namespace: ikgrw
+  labels:
+    app: stract-backend
+    hex: 6kgrvqaeaaaa
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stract-backend
+      hex: 6kgrvqaeaaaa
+  template:
+    metadata:
+      labels:
+        app: stract-backend
+        hex: 6kgrvqaeaaaa
+    spec:  
+      containers:
+      - name: api
+        image: ghcr.io/hexcamp/stract/stract-backend@sha256:d0a227a4e0ff1935b2fd587c98be7c551d6d87fa8b651521036d8879e9ac61e0
+        command: [ sh, -c ]
+        args:
+          - |
+            set -e
+            while true; do sleep 50; done
+        volumeMounts:
+           - mountPath: /data
+             name: data
+        volumeMounts:
+           - mountPath: /configs
+             name: configs
+        ports:
+          - protocol: TCP
+            containerPort: 3000
+            name: api
+          - protocol: TCP
+            containerPort: 3001
+            name: prometheus
+          - protocol: TCP
+            containerPort: 3005
+            name: gossip
+          - protocol: TCP
+            containerPort: 3011
+            name: management
+        resources:
+          limits:
+            memory: 1000Mi
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: stract-data-community-associations
+      - name: configs
+        persistentVolumeClaim:
+          claimName: stract-configs-community-associations
