@@ -81,7 +81,7 @@ spec:
         ports:
           - protocol: TCP
             containerPort: 3009
-            name: entity-search-server
+            name: entity-search
           - protocol: TCP
             containerPort: 3010
             name: gossip
