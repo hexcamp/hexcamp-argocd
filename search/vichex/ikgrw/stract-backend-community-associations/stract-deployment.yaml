@@ -45,7 +45,7 @@ spec:
             name: management
         resources:
           limits:
-            memory: 1000Mi
+            memory: 8000Mi
       - name: search-server
         image: ghcr.io/hexcamp/stract/stract-backend@sha256:d0a227a4e0ff1935b2fd587c98be7c551d6d87fa8b651521036d8879e9ac61e0
         command: [ "/usr/local/bin/stract" ]
