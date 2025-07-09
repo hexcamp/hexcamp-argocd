@@ -67,6 +67,49 @@ spec:
         resources:
           limits:
             memory: 1000Mi
+      - name: entity-search-server
+        image: ghcr.io/hexcamp/stract/stract-backend@sha256:d0a227a4e0ff1935b2fd587c98be7c551d6d87fa8b651521036d8879e9ac61e0
+        command: [ "/usr/local/bin/stract" ]
+        args:
+          - entity-search-server
+          - configs/entity_search_server.toml
+        volumeMounts:
+           - mountPath: /data
+             name: data
+           - mountPath: /configs
+             name: configs
+        ports:
+          - protocol: TCP
+            containerPort: 3009
+            name: entity-search-server
+          - protocol: TCP
+            containerPort: 3010
+            name: gossip
+        resources:
+          limits:
+            memory: 1000Mi
+      - name: webgraph
+        image: ghcr.io/hexcamp/stract/stract-backend@sha256:d0a227a4e0ff1935b2fd587c98be7c551d6d87fa8b651521036d8879e9ac61e0
+        command: [ "/usr/local/bin/stract" ]
+        args:
+          - webgraph
+          - server
+          - configs/webgraph/server.toml
+        volumeMounts:
+           - mountPath: /data
+             name: data
+           - mountPath: /configs
+             name: configs
+        ports:
+          - protocol: TCP
+            containerPort: 3003
+            name: webgraph
+          - protocol: TCP
+            containerPort: 3007
+            name: gossip
+        resources:
+          limits:
+            memory: 1000Mi
       volumes:
       - name: data
         persistentVolumeClaim:
