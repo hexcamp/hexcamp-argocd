@@ -21,11 +21,10 @@ spec:
       containers:
       - name: api
         image: ghcr.io/hexcamp/stract/stract-backend@sha256:d0a227a4e0ff1935b2fd587c98be7c551d6d87fa8b651521036d8879e9ac61e0
-        command: [ sh, -c ]
+        command: [ "/usr/local/bin/stract" ]
         args:
-          - |
-            set -e
-            while true; do sleep 50; done
+          - api
+          - configs/api.toml
         volumeMounts:
            - mountPath: /data
              name: data
