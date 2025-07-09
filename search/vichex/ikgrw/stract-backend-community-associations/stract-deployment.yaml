@@ -29,7 +29,6 @@ spec:
         volumeMounts:
            - mountPath: /data
              name: data
-        volumeMounts:
            - mountPath: /configs
              name: configs
         ports:
