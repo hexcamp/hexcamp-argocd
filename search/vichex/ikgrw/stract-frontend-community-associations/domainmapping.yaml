@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1beta1
+kind: DomainMapping
+metadata:
+  name: 6kgrwaaeaaaa.vichex.ca
+  namespace: ikgrw
+spec:
+  ref:
+    apiVersion: serving.knative.dev/v1
+    kind: Service
+    name: stract-frontend-community-associations
+    namespace: ikgrw
+  tls:
+    secretName: vichex-wildcard-cert
