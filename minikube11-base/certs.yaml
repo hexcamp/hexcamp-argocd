@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: infra-hex-camp-wildcard
+  namespace: default
+spec:
+  commonName: "*.infra.hex.camp"
+  secretName: infra-hex-camp-wildcard-cert
+  dnsNames:
+    - "*.infra.hex.camp"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer

@@ -1,5 +1,7 @@
 #! /bin/bash
 
+. ../.env
+
 CLUSTER=$(pwd | sed 's,^.*\/,,' | sed 's,-.*,,')
 
-k9s --context $CLUSTER -n default
+argocd app sync $CLUSTER-base

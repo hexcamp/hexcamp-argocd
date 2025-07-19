@@ -1,0 +1,9 @@
+apiVersion: hnc.x-k8s.io/v1alpha2
+kind: HNCConfiguration
+metadata:
+  name: config
+  namespace: default
+spec:
+  resources:
+  - mode: Propagate
+    resource: secrets
