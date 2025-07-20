@@ -1,5 +1,5 @@
 local regions = import 'regions.libsonnet';
-local dnsEndpoints = (import 'dnsEndpoint.libsonnet').namespace;
+local dnsEndpoints = (import 'dnsEndpoint.libsonnet').dnsEndpoints;
 
 local cluster = 'minikube11';
 
