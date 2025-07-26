@@ -5,7 +5,7 @@
       kind: 'Service',
       metadata: {
         name: 'hexcamp-%s' % region,
-        namespace: region,
+        namespace: 'default',
       },
       spec: {
         template: {
