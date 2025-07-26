@@ -32,6 +32,9 @@ spec:
     - name: persistent-storage
       mountPath: /data
       readOnly: true
+    - name: bundles-akpq
+      mountPath: /bundles/akpq
+      readOnly: true
     - name: bundles-ikgrw
       mountPath: /bundles/ikgrw
       readOnly: true
@@ -46,6 +49,10 @@ spec:
   - name: persistent-storage
     persistentVolumeClaim:
       claimName: coredns-proxy-data
+      readOnly: true
+  - name: bundles-akpq
+    persistentVolumeClaim:
+      claimName: coredns-data-akpq
       readOnly: true
   - name: bundles-ikgrw
     persistentVolumeClaim:
