@@ -12,11 +12,13 @@ spec:
     requests:
       storage: 10Mi
 ---
-kind: PersistentVolumeClaim
+kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: coredns-data-ikgrw
   namespace: default
+  labels:
+    type: local
 spec:
   storageClassName: manual
   capacity:
@@ -25,6 +27,18 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/opt/local-path-provisioner/pvc-30198cd7-3c97-4cfb-aa3a-bbc1db166e54_ikgrw_coredns-data-ikgrw"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: coredns-data-ikgrw
+  namespace: default
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Mi
