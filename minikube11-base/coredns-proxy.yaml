@@ -32,6 +32,9 @@ spec:
     - name: persistent-storage
       mountPath: /data
       readOnly: true
+    - name: bundles-ikgrw
+      mountPath: /bundles/ikgrw
+      readOnly: true
     ports:
     - hostPort: 53
       containerPort: 53
@@ -43,6 +46,10 @@ spec:
   - name: persistent-storage
     persistentVolumeClaim:
       claimName: coredns-proxy-data
+      readOnly: true
+  - name: bundles-ikgrw
+    persistentVolumeClaim:
+      claimName: coredns-data-ikgrw
       readOnly: true
 ---
 apiVersion: serving.knative.dev/v1
@@ -78,8 +85,6 @@ spec:
         volumeMounts:
           - name: data
             mountPath: /data
-          - name: bundles-ikgrw
-            mountPath: /bundles/ikgrw
         readinessProbe:
           successThreshold: 1
           tcpSocket:
@@ -89,9 +94,6 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: coredns-proxy-data
-        - name: bundles-ikgrw
-          persistentVolumeClaim:
-            claimName: coredns-data-ikgrw
       enableServiceLinks: false
       timeoutSeconds: 300
 ---
