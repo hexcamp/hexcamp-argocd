@@ -18,9 +18,11 @@ metadata:
   name: coredns-data-ikgrw
   namespace: default
 spec:
-  accessModes:
-    - ReadOnlyMany
   storageClassName: manual
+  capacity:
+    storage: 10Mi
+  accessModes:
+    - ReadWriteOnce
   hostPath:
     path: "/opt/local-path-provisioner/pvc-30198cd7-3c97-4cfb-aa3a-bbc1db166e54_ikgrw_coredns-data-ikgrw"
   resources:
