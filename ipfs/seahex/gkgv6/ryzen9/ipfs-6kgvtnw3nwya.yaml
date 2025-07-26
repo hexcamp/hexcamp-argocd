@@ -19,7 +19,7 @@ spec:
     spec:  
       containers:
       - name: ipfs
-        image: ipfs/kubo:v0.34.1
+        image: ipfs/kubo:v0.36.0
         command: [ sh, -c ]
         envFrom:
         - secretRef:
