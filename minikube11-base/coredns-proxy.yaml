@@ -12,6 +12,18 @@ spec:
     requests:
       storage: 10Mi
 ---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: coredns-data-ikgrw
+  namespace: default
+spec:
+  accessModes:
+    - ReadOnlyMany
+  storageClassName: manual
+  hostPath:
+    path: "/opt/local-path-provisioner/pvc-30198cd7-3c97-4cfb-aa3a-bbc1db166e54_ikgrw_coredns-data-ikgrw"
+---
 apiVersion: v1
 kind: Pod
 metadata:
@@ -32,6 +44,9 @@ spec:
     - name: persistent-storage
       mountPath: /data
       readOnly: true
+    - name: bundle-ikgrw
+      mountPath: /bundles/ikgrw
+      readOnly: true
     ports:
     - hostPort: 53
       containerPort: 53
@@ -43,6 +58,10 @@ spec:
   - name: persistent-storage
     persistentVolumeClaim:
       claimName: coredns-proxy-data
+      readOnly: true
+  - name: bundle-ikgrw
+    persistentVolumeClaim:
+      claimName: coredns-data-ikgrw
       readOnly: true
 ---
 apiVersion: serving.knative.dev/v1
