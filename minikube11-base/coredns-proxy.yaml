@@ -78,6 +78,8 @@ spec:
         volumeMounts:
           - name: data
             mountPath: /data
+          - name: bundles-ikgrw
+            mountPath: /bundles/ikgrw
         readinessProbe:
           successThreshold: 1
           tcpSocket:
@@ -87,6 +89,9 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: coredns-proxy-data
+        - name: bundles-ikgrw
+          persistentVolumeClaim:
+            claimName: coredns-data-ikgrw
       enableServiceLinks: false
       timeoutSeconds: 300
 ---
