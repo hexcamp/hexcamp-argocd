@@ -53,6 +53,9 @@ spec:
     - name: bundles-ikgrw
       mountPath: /bundles/ikgrw
       readOnly: true
+    - name: bundles-vanhex
+      mountPath: /bundles/vanhex
+      readOnly: true
     ports:
     - hostPort: 53
       containerPort: 53
@@ -92,6 +95,10 @@ spec:
   - name: bundles-ikgrw
     persistentVolumeClaim:
       claimName: coredns-data-ikgrw
+      readOnly: true
+  - name: bundles-vanhex
+    persistentVolumeClaim:
+      claimName: coredns-data-vanhex
       readOnly: true
 ---
 apiVersion: serving.knative.dev/v1
