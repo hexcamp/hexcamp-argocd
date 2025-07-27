@@ -44,6 +44,9 @@ spec:
     - name: bundles-axpq
       mountPath: /bundles/axpq
       readOnly: true
+    - name: bundles-gkgv6
+      mountPath: /bundles/gkgv6
+      readOnly: true
     - name: bundles-gkgy6
       mountPath: /bundles/gkgy6
       readOnly: true
@@ -77,6 +80,10 @@ spec:
   - name: bundles-axpq
     persistentVolumeClaim:
       claimName: coredns-data-axpq
+      readOnly: true
+  - name: bundles-gkgv6
+    persistentVolumeClaim:
+      claimName: coredns-data-gkgv6
       readOnly: true
   - name: bundles-gkgy6
     persistentVolumeClaim:
