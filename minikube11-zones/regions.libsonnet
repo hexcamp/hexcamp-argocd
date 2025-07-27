@@ -26,7 +26,7 @@
   {
     region: 'axpq',
     workingDir: '/data/h3/46'
-  }
+  },
   {
     region: 'vanhex',
     workingDir: '/data'
