@@ -30,14 +30,6 @@ spec:
               fi
               cd hexcamp-terraform-aws-minikube
               git pull
-              echo ">>> minikube7"
-              cd examples/minikube7
-              ./update-cronjob.sh || true
-              cd ../..
-              echo ">>> minikube8"
-              cd examples/minikube8
-              ./update-cronjob.sh || true
-              cd ../..
               echo ">>> minikube9"
               cd examples/minikube9
               ./update-cronjob.sh || true
