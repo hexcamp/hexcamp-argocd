@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: peerhex-americas-bare
+spec:
+  commonName: "americas.peerhex.org"
+  secretName: peerhex-americas-bare-cert
+  dnsNames:
+    - "americas.peerhex.org"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: peerhex-americas-wildcard
+spec:
+  commonName: "*.americas.peerhex.org"
+  secretName: peerhex-americas-wildcard-cert
+  dnsNames:
+    - "*.americas.peerhex.org"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
