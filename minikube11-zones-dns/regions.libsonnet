@@ -31,4 +31,16 @@
     region: 'vanhex',
     workingDir: '/data'
   },
+  {
+    region: 'peerhex-americas',
+    workingDir: '/data'
+  },
+  {
+    region: 'peerhex-emea',
+    workingDir: '/data'
+  },
+  {
+    region: 'peerhex-asia',
+    workingDir: '/data'
+  },
 ]
