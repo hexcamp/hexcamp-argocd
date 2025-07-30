@@ -56,6 +56,9 @@ spec:
     - name: bundles-vanhex
       mountPath: /bundles/vanhex
       readOnly: true
+    - name: bundles-peerhex-americas
+      mountPath: /bundles/peerhex-americas
+      readOnly: true
     ports:
     - hostPort: 53
       containerPort: 53
@@ -99,6 +102,10 @@ spec:
   - name: bundles-vanhex
     persistentVolumeClaim:
       claimName: coredns-data-vanhex
+      readOnly: true
+  - name: bundles-peerhex-americas
+    persistentVolumeClaim:
+      claimName: coredns-data-peerhex-americas
       readOnly: true
 ---
 apiVersion: serving.knative.dev/v1
