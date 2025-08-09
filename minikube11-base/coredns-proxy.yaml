@@ -59,6 +59,9 @@ spec:
     - name: bundles-peerhex-americas
       mountPath: /bundles/peerhex-americas
       readOnly: true
+    - name: bundles-islandhex
+      mountPath: /bundles/islandhex
+      readOnly: true
     ports:
     - hostPort: 53
       containerPort: 53
@@ -106,6 +109,10 @@ spec:
   - name: bundles-peerhex-americas
     persistentVolumeClaim:
       claimName: coredns-data-peerhex-americas
+      readOnly: true
+  - name: bundles-islandhex
+    persistentVolumeClaim:
+      claimName: coredns-data-islandhex
       readOnly: true
 ---
 apiVersion: serving.knative.dev/v1
