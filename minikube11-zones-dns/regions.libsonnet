@@ -43,4 +43,8 @@
     region: 'peerhex-asia',
     workingDir: '/data'
   },
+  {
+    region: 'islandhex',
+    workingDir: '/data'
+  },
 ]
