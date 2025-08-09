@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: islandhex-bare
+spec:
+  commonName: "islandhex.ca"
+  secretName: islandhex-bare-cert
+  dnsNames:
+    - "islandhex.ca"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: islandhex-wildcard
+spec:
+  commonName: "*.islandhex.ca"
+  secretName: islandhex-wildcard-cert
+  dnsNames:
+    - "*.islandhex.ca"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
