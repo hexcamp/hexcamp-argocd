@@ -5,7 +5,7 @@
       apiVersion: 'v1',
       metadata: {
         name: 'coredns-data-%s' % region,
-        namespace: region,
+        namespace: 'default',
       },
       spec: {
         accessModes: [

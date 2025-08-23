@@ -5,7 +5,7 @@
       kind: 'DomainMapping',
       metadata: {
         name: 'rclone-%s-%s.infra.hex.camp' % [cluster, region],
-        namespace: region,
+        namespace: 'default',
       },
       spec: {
         ref: {

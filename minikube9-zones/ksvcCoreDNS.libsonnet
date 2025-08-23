@@ -5,14 +5,15 @@
       kind: 'Service',
       metadata: {
         name: 'hexcamp-%s' % region,
-        namespace: region,
+        namespace: 'default',
       },
       spec: {
         template: {
           metadata: {
             annotations: {
-              'autoscaling.knative.dev/scale-to-zero-pod-retention-period': '30s',
-              'autoscaling.knative.dev/max-scale': '1',
+              'enable-scale-to-zero': 'false',
+              // 'autoscaling.knative.dev/scale-to-zero-pod-retention-period': '30s',
+              // 'autoscaling.knative.dev/max-scale': '1',
             },
           },
           spec: {
