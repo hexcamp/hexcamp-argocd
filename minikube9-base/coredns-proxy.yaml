@@ -32,6 +32,36 @@ spec:
     - name: persistent-storage
       mountPath: /data
       readOnly: true
+    - name: bundles-ai
+      mountPath: /bundles/ai
+      readOnly: true
+    - name: bundles-akpq
+      mountPath: /bundles/akpq
+      readOnly: true
+    - name: bundles-as7q
+      mountPath: /bundles/as7q
+      readOnly: true
+    - name: bundles-axpq
+      mountPath: /bundles/axpq
+      readOnly: true
+    - name: bundles-gkgv6
+      mountPath: /bundles/gkgv6
+      readOnly: true
+    - name: bundles-gkgy6
+      mountPath: /bundles/gkgy6
+      readOnly: true
+    - name: bundles-ikgrw
+      mountPath: /bundles/ikgrw
+      readOnly: true
+    - name: bundles-vanhex
+      mountPath: /bundles/vanhex
+      readOnly: true
+    - name: bundles-peerhex-americas
+      mountPath: /bundles/peerhex-americas
+      readOnly: true
+    - name: bundles-islandhex
+      mountPath: /bundles/islandhex
+      readOnly: true
     ports:
     - hostPort: 53
       containerPort: 53
@@ -43,6 +73,46 @@ spec:
   - name: persistent-storage
     persistentVolumeClaim:
       claimName: coredns-proxy-data
+      readOnly: true
+  - name: bundles-ai
+    persistentVolumeClaim:
+      claimName: coredns-data-ai
+      readOnly: true
+  - name: bundles-akpq
+    persistentVolumeClaim:
+      claimName: coredns-data-akpq
+      readOnly: true
+  - name: bundles-as7q
+    persistentVolumeClaim:
+      claimName: coredns-data-as7q
+      readOnly: true
+  - name: bundles-axpq
+    persistentVolumeClaim:
+      claimName: coredns-data-axpq
+      readOnly: true
+  - name: bundles-gkgv6
+    persistentVolumeClaim:
+      claimName: coredns-data-gkgv6
+      readOnly: true
+  - name: bundles-gkgy6
+    persistentVolumeClaim:
+      claimName: coredns-data-gkgy6
+      readOnly: true
+  - name: bundles-ikgrw
+    persistentVolumeClaim:
+      claimName: coredns-data-ikgrw
+      readOnly: true
+  - name: bundles-vanhex
+    persistentVolumeClaim:
+      claimName: coredns-data-vanhex
+      readOnly: true
+  - name: bundles-peerhex-americas
+    persistentVolumeClaim:
+      claimName: coredns-data-peerhex-americas
+      readOnly: true
+  - name: bundles-islandhex
+    persistentVolumeClaim:
+      claimName: coredns-data-islandhex
       readOnly: true
 ---
 apiVersion: serving.knative.dev/v1

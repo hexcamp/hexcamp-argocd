@@ -2,7 +2,7 @@
 
 . ../.env
 
-CLUSTER=$(pwd | sed 's,^.*\/,,')
+CLUSTER=$(pwd | sed 's,^.*\/,,' | sed 's,-.*,,')
 EXTDNS_CLUSTER=nuc2
 
 echo GITHUB_PAT $GITHUB_PAT
