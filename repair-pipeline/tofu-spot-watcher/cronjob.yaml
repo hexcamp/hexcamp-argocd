@@ -40,11 +40,11 @@ spec:
               ./update-cronjob.sh || true
               ./update-ns2-test-hex-camp-cronjob.sh || true
               cd ../..
-              echo ">>> minikube11"
-              cd examples/minikube11
-              ./update-cronjob.sh || true
-              ./update-ns3-test-hex-camp-cronjob.sh || true
-              cd ../..
+              #echo ">>> minikube11"
+              #cd examples/minikube11
+              #./update-cronjob.sh || true
+              #./update-ns3-test-hex-camp-cronjob.sh || true
+              #cd ../..
               #while true; do sleep 60; done
               ./send-ips-as-cloudevent.sh
             volumeMounts:
