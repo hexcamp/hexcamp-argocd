@@ -15,6 +15,6 @@ argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick
 argocd app create $CLUSTER-base \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd.git \
-  --path homelab-base \
+  --path homelab-reflector \
   --dest-name $CLUSTER \
   --dest-namespace default
