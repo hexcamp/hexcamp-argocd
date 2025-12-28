@@ -12,7 +12,7 @@ echo GITHUB_PAT $GITHUB_PAT
 
 argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick --password $GITHUB_PAT --upsert
 
-argocd app create $CLUSTER-base \
+argocd app create $CLUSTER-reflector \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd.git \
   --path homelab-reflector \
