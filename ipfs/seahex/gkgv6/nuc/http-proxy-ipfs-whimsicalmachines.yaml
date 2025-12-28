@@ -19,3 +19,10 @@ spec:
     fqdn: "whimsicalmachines.com"
     tls:
       secretName: whimsicalmachines.com-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: whimsicalmachines.com-cert
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflects: default/whimsicalmachines.com-cert

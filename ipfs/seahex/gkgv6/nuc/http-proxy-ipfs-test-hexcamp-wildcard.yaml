@@ -19,3 +19,10 @@ spec:
     fqdn: "*.test.hex.camp"
     tls:
       secretName: test-hex-camp-wildcard-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: test-hex-camp-wildcard-cert
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflects: default/test-hex-camp-wildcard-cert

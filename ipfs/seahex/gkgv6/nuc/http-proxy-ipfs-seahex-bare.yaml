@@ -19,3 +19,10 @@ spec:
     fqdn: "seahex.org"
     tls:
       secretName: seahex-bare-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: seahex-bare-cert
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflects: default/seahhex-bare-cert

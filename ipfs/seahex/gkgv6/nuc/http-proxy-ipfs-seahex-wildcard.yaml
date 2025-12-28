@@ -19,3 +19,10 @@ spec:
     fqdn: "*.seahex.org"
     tls:
       secretName: seahex-wildcard-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: seahex-wildcard-cert
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflects: default/seahex-wildcard-cert
