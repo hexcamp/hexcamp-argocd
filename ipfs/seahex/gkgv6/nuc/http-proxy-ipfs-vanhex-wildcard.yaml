@@ -19,3 +19,10 @@ spec:
     fqdn: "*.vanhex.ca"
     tls:
       secretName: vanhex-wildcard-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: vanhex-wildcard-cert
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflects: default/vanhex-wildcard-cert
