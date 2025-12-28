@@ -19,3 +19,10 @@ spec:
     fqdn: "islandhex.ca"
     tls:
       secretName: islandhex-bare-cert
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: islandhex-bare-cert
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflects: default/islandhex-bare-cert
