@@ -25,4 +25,4 @@ kind: Secret
 metadata:
   name: seahex-bare-cert
   annotations:
-    reflector.v1.k8s.emberstack.com/reflects: default/seahhex-bare-cert
+    reflector.v1.k8s.emberstack.com/reflects: default/seahex-bare-cert
