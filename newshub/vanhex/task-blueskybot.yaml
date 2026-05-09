@@ -27,7 +27,10 @@ spec:
         #cat /feeds/$(params.feed).feeds > feeds.txt
         #echo "feeds.txt:"
         #cat feeds.txt
-        sleep 600
+        #
+        rm -vf /workspace/data/cbc_bc/lastPostedLinks.json
+        exit
+        #sleep 600
         node /app/bot.mjs --once
         echo "Done"
       volumeMounts:
