@@ -13,6 +13,6 @@ argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick
 argocd app create $CLUSTER-newshub-vanhex \
   --upsert \
   --repo https://github.com/hexcamp/hexcamp-argocd \
-  --path newshub-vanhex \
+  --path newshub/vanhex \
   --dest-name $CLUSTER \
   --dest-namespace newshub-vanhex
