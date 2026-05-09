@@ -5,8 +5,8 @@ metadata:
   namespace: newshub-vanhex
 spec:
   steps:
-    - name: echo
-      image: alpine
+    - name: blueskybot
+      image: ghcr.io/hexcamp/blueskybot@sha256:06ab8195e06b97fae6a44ea8fcad4cd418bcf15c1f16f9273f14b79fe9bdf7c0
       script: |
         #!/bin/sh
         echo "Hello World"
