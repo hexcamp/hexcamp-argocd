@@ -4,5 +4,7 @@ metadata:
   name: feeds
 data:
   # file-like keys
-  cbc_bc.properties: |
+  cbc_bc.env: |
     BLUESKY_USERNAME=jim+rss-test@jimpick.com
+  cbc_bc.feeds: |
+    https://www.cbc.ca/webfeed/rss/rss-canada-britishcolumbia
