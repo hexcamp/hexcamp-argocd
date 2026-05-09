@@ -18,3 +18,7 @@ spec:
       params:
       - name: username
         value: $(tt.params.username)
+      workspaces:
+      - name: data
+        persistentVolumeClaim:
+          claimName: data-cbc
