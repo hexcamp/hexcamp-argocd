@@ -11,14 +11,14 @@ spec:
   - apiVersion: tekton.dev/v1
     kind: TaskRun
     metadata:
-      generateName: hello-taskrun-
+      generateName: blueskybot-
     spec:
       taskRef:
-        name: hello
+        name: blueskybot
       params:
       - name: username
         value: $(tt.params.username)
       workspaces:
       - name: data
         persistentVolumeClaim:
-          claimName: data-cbc
+          claimName: data-blueskybot

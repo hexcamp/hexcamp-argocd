@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1
 kind: Task
 metadata:
-  name: hello
+  name: blueskybot
   namespace: newshub-vanhex
 spec:
   steps:
