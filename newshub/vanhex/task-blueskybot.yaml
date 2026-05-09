@@ -27,10 +27,11 @@ spec:
 
         cat /feeds/$(params.feed).feeds > feeds.txt
 
-        echo ".env:"
-        cat .env
-        echo "feeds.txt:"
-        cat feeds.txt
+        # Debug
+        #echo ".env:"
+        #cat .env
+        #echo "feeds.txt:"
+        #cat feeds.txt
 
         # Maintenance: reset json
         #rm -vf /workspace/data/cbc_bc/lastPostedLinks.json
