@@ -19,7 +19,15 @@ spec:
         echo "Secret: $(params.feed)_password = $$(params.feed)_password"
         sleep 600
         echo "Done"
+      volumeMounts:
+      - name: feeds
+        mountPath: "/feeds"
+        readOnly: true
   workspaces:
   - name: data
     description: | 
       PVC for the lastPostedLinks.json file
+  volumes:
+    - name: feeds
+    configMap:
+      name: feeds
