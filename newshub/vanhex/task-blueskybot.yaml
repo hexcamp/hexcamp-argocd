@@ -17,6 +17,13 @@ spec:
         #!/bin/sh
         echo "Hello $(params.feed)"
         echo "Secret: $(params.feed)_password = $$(params.feed)_password"
+        mkdir -p /workspace/data/$(params.feed)
+        cd /workspace/data/$(params.feed)
+        echo "BLUESKY_PASSWORD=$$(params.feed)_password" > .env
+        echo "SERVICE_URL=https://yvr.whims.io" >> .env
+        echo "ALT_TEXT_ENABLED=false" >> .env
+        echo ".env:"
+        cat .env
         sleep 600
         echo "Done"
       volumeMounts:
