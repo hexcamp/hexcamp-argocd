@@ -17,21 +17,27 @@ spec:
         #!/bin/sh
         echo "Hello $(params.feed)"
         mkdir -p /workspace/data/$(params.feed)
+
         cd /workspace/data/$(params.feed)
+
         cat /feeds/$(params.feed).env > .env
         echo "BLUESKY_PASSWORD=$$(params.feed)_password" >> .env
         echo "SERVICE_URL=https://yvr.whims.io" >> .env
         echo "ALT_TEXT_ENABLED=false" >> .env
-        #echo ".env:"
-        #cat .env
-        #cat /feeds/$(params.feed).feeds > feeds.txt
-        #echo "feeds.txt:"
-        #cat feeds.txt
-        #
+
+        cat /feeds/$(params.feed).feeds > feeds.txt
+
+        echo ".env:"
+        cat .env
+        echo "feeds.txt:"
+        cat feeds.txt
+
         # Maintenance: reset json
         #rm -vf /workspace/data/cbc_bc/lastPostedLinks.json
         #exit
+        
         #sleep 600
+        
         node /app/bot.mjs --once
         echo "Done"
       volumeMounts:
