@@ -6,7 +6,7 @@ metadata:
 spec:
   steps:
     - name: blueskybot
-      image: ghcr.io/hexcamp/blueskybot@sha256:06ab8195e06b97fae6a44ea8fcad4cd418bcf15c1f16f9273f14b79fe9bdf7c0
+      image: ghcr.io/hexcamp/blueskybot@sha256:91a27b8acf35a0146e23a3f54d7b4a6550b636bea7879f5e5330d9f914165827
       script: |
         #!/bin/sh
         echo "Hello World"

@@ -4,7 +4,7 @@
 
 CLUSTER=ryzen9
 
-tkn -n newshub-vanhex pipelinerun delete --all -f
+tkn -n newshub-vanhex taskrun delete --all -f
 
 argocd app sync $CLUSTER-newshub-vanhex
 
