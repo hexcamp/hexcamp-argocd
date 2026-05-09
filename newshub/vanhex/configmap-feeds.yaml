@@ -8,3 +8,11 @@ data:
     BLUESKY_USERNAME=jim+cbc-bc@jimpick.com
   cbc_bc.feeds: |
     https://www.cbc.ca/webfeed/rss/rss-canada-britishcolumbia
+  dailyhive_van.env: |
+    BLUESKY_USERNAME=jim+dailyhive-van@jimpick.com
+  dailyhive_van.feeds: |
+    https://dailyhive.com/feed/vancouver
+  citynews_van.env: |
+    BLUESKY_USERNAME=jim+citynews-van@jimpick.com
+  citynews_van.feeds: |
+    https://vancouver.citynews.ca/feed/
