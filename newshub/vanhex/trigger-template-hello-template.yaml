@@ -1,0 +1,20 @@
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: hello-template
+  namespace: newshub-vanhex
+spec:
+  params:
+  - name: username
+    default: "Kubernetes"
+  resourcetemplates:
+  - apiVersion: tekton.dev/v1
+    kind: TaskRun
+    metadata:
+      generateName: hello-taskrun-
+    spec:
+      taskRef:
+        name: hello
+      params:
+      - name: username
+        value: $(tt.params.username)
