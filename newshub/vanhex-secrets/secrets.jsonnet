@@ -1,5 +1,7 @@
 function(
   cbcBcPassword='xxx',
+  dailyHiveVanPassword='xxx',
+  cityNewsVanPassword='xxx',
 )
   [
     {
@@ -12,6 +14,8 @@ function(
       type: 'Opaque',
       data: {
         cbc_bc_password: cbcBcPassword,
+        dailyhive_van_password: dailyHiveVanPassword,
+        citynews_van_password: cityNewsVanPassword,
       },
     },
   ]
