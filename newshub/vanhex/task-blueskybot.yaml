@@ -28,6 +28,6 @@ spec:
     description: | 
       PVC for the lastPostedLinks.json file
   volumes:
-    - name: feeds
+  - name: feeds
     configMap:
       name: feeds
