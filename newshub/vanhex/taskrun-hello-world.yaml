@@ -1,8 +1,0 @@
-apiVersion: tekton.dev/v1
-kind: TaskRun
-metadata:
-  name: hello-task-run
-  namespace: newshub-vanhex
-spec:
-  taskRef:
-    name: hello
