@@ -10,7 +10,7 @@ spec:
       script: |
         #!/bin/sh
         echo "Hello World"
-      workspaces:
-      - name: data
-        description: | 
-          PVC for the lastPostedLinks.json file
+  workspaces:
+  - name: data
+    description: | 
+      PVC for the lastPostedLinks.json file
