@@ -6,8 +6,8 @@ metadata:
 spec:
   serviceAccountName: tekton-robot
   triggers:
-    - name: hello-trigger 
+    - name: blueskybot
       bindings:
-      - ref: hello-binding
+      - ref: blueskybot
       template:
-        ref: hello-template
+        ref: blueskybot

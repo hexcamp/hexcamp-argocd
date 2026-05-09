@@ -1,12 +1,12 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerTemplate
 metadata:
-  name: hello-template
+  name: blueskybot
   namespace: newshub-vanhex
 spec:
   params:
-  - name: username
-    default: "Kubernetes"
+  - name: feed
+    default: "Unknown"
   resourcetemplates:
   - apiVersion: tekton.dev/v1
     kind: TaskRun
@@ -16,8 +16,8 @@ spec:
       taskRef:
         name: blueskybot
       params:
-      - name: username
-        value: $(tt.params.username)
+      - name: feed
+        value: $(tt.params.feed)
       workspaces:
       - name: data
         persistentVolumeClaim:

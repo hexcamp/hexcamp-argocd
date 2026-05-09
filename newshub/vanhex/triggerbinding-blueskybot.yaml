@@ -1,9 +1,9 @@
 apiVersion: triggers.tekton.dev/v1beta1
 kind: TriggerBinding
 metadata:
-  name: hello-binding
+  name: blueskybot
   namespace: newshub-vanhex
 spec: 
   params:
-  - name: username
-    value: $(body.username)
+  - name: feed
+    value: $(body.feed)
