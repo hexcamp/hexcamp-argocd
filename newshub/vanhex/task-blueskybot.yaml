@@ -28,8 +28,9 @@ spec:
         #echo "feeds.txt:"
         #cat feeds.txt
         #
-        rm -vf /workspace/data/cbc_bc/lastPostedLinks.json
-        exit
+        # Maintenance: reset json
+        #rm -vf /workspace/data/cbc_bc/lastPostedLinks.json
+        #exit
         #sleep 600
         node /app/bot.mjs --once
         echo "Done"
