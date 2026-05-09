@@ -9,6 +9,6 @@ metadata:
 data:
   global-config: |
     enforcedConfigLevel: global
-    ttlSecondsAfterFinished: 300
-    successfulHistoryLimit: 3
-    failedHistoryLimit: 3
+    ttlSecondsAfterFinished: 21600
+    successfulHistoryLimit: 10
+    failedHistoryLimit: 10
