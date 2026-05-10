@@ -16,3 +16,7 @@ data:
     BLUESKY_USERNAME=jim+citynews-van@jimpick.com
   citynews_van.feeds: |
     https://vancouver.citynews.ca/feed/
+  globalnews_bc.env: |
+    BLUESKY_USERNAME=jim+globalnews-bc@jimpick.com
+  globalnews_bc.feeds: |
+    https://globalnews.ca/bc/feed/
