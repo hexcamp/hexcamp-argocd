@@ -9,7 +9,7 @@ spec:
       type: string
   steps:
     - name: blueskybot
-      image: ghcr.io/hexcamp/blueskybot@sha256:1e69731e2e2e8c928cfc6ab47eb4e3545e1664d2d130c693b17bcac1e34908ab
+      image: ghcr.io/hexcamp/blueskybot@sha256:973da14864ebec0bb1c1513c98b8894008472fc8cd1c4030a02ebc6d72ef4584
       envFrom:
       - secretRef:
           name: atproto-secrets
