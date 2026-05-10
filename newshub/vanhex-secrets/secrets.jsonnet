@@ -2,6 +2,7 @@ function(
   cbcBcPassword='xxx',
   dailyHiveVanPassword='xxx',
   cityNewsVanPassword='xxx',
+  globalNewsBcPassword='xxx',
 )
   [
     {
@@ -16,6 +17,7 @@ function(
         cbc_bc_password: cbcBcPassword,
         dailyhive_van_password: dailyHiveVanPassword,
         citynews_van_password: cityNewsVanPassword,
+        globalnews_bc_password: globalNewsBcPassword,
       },
     },
   ]
