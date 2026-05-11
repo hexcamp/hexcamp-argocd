@@ -3,6 +3,7 @@ function(
   dailyHiveVanPassword='xxx',
   cityNewsVanPassword='xxx',
   globalNewsBcPassword='xxx',
+  theThunderbirdPassword='xxx',
 )
   [
     {
@@ -18,6 +19,7 @@ function(
         dailyhive_van_password: dailyHiveVanPassword,
         citynews_van_password: cityNewsVanPassword,
         globalnews_bc_password: globalNewsBcPassword,
+        thethunderbird_password: theThunderbirdPassword,
       },
     },
   ]

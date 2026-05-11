@@ -8,6 +8,7 @@ CBC_BC_PASSWORD_BASE64=$(echo -n $cbc_bc_password | base64)
 DAILYHIVE_VAN_PASSWORD_BASE64=$(echo -n $dailyhive_van_password | base64)
 CITYNEWS_VAN_PASSWORD_BASE64=$(echo -n $citynews_van_password | base64)
 GLOBALNEWS_BC_PASSWORD_BASE64=$(echo -n $globalnews_bc_password | base64)
+THETHUNDERBIRD_PASSWORD_BASE64=$(echo -n $thethunderbird_password | base64)
 
 argocd app create $CLUSTER-newshub-vanhex-secrets \
   --upsert \
@@ -19,6 +20,7 @@ argocd app create $CLUSTER-newshub-vanhex-secrets \
   --jsonnet-tla-str dailyHiveVanPassword=$DAILYHIVE_VAN_PASSWORD_BASE64 \
   --jsonnet-tla-str cityNewsVanPassword=$CITYNEWS_VAN_PASSWORD_BASE64 \
   --jsonnet-tla-str globalNewsBcPassword=$GLOBALNEWS_BC_PASSWORD_BASE64 \
+  --jsonnet-tla-str theThunderbirdPassword=$THETHUNDERBIRD_PASSWORD_BASE64 \
           
 
 
