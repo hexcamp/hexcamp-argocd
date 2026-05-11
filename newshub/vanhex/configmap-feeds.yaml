@@ -20,3 +20,7 @@ data:
     BLUESKY_USERNAME=jim+globalnews-bc@jimpick.com
   globalnews_bc.feeds: |
     https://globalnews.ca/bc/feed/
+  thethunderbird.env: |
+    BLUESKY_USERNAME=jim+thethunderbird@jimpick.com
+  thethunderbird.feeds: |
+    https://thethunderbird.ca/feed/
