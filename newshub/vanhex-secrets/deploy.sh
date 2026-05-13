@@ -9,7 +9,7 @@ DAILYHIVE_VAN_PASSWORD_BASE64=$(echo -n $dailyhive_van_password | base64)
 CITYNEWS_VAN_PASSWORD_BASE64=$(echo -n $citynews_van_password | base64)
 GLOBALNEWS_BC_PASSWORD_BASE64=$(echo -n $globalnews_bc_password | base64)
 THETHUNDERBIRD_PASSWORD_BASE64=$(echo -n $thethunderbird_password | base64)
-GEORGIASTRAIGHT_PASSWORD_BASE64=$(echo -n $georgestraight_password | base64)
+GEORGIASTRAIGHT_PASSWORD_BASE64=$(echo -n $georgiastraight_password | base64)
 
 argocd app create $CLUSTER-newshub-vanhex-secrets \
   --upsert \
