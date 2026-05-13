@@ -24,3 +24,7 @@ data:
     BLUESKY_USERNAME=jim+thethunderbird@jimpick.com
   thethunderbird.feeds: |
     https://thethunderbird.ca/feed/
+  georgiastraight.env: |
+    BLUESKY_USERNAME=jim+georgiastraight@jimpick.com
+  georgiastraight.feeds: |
+    https://www.straight.com/content/rss
