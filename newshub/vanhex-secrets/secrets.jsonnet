@@ -4,7 +4,7 @@ function(
   cityNewsVanPassword='xxx',
   globalNewsBcPassword='xxx',
   theThunderbirdPassword='xxx',
-  georgeStraightPassword='xxx',
+  georgiaStraightPassword='xxx',
 )
   [
     {
