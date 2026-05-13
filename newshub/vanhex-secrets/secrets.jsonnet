@@ -4,6 +4,7 @@ function(
   cityNewsVanPassword='xxx',
   globalNewsBcPassword='xxx',
   theThunderbirdPassword='xxx',
+  georgeStraightPassword='xxx',
 )
   [
     {
@@ -20,6 +21,7 @@ function(
         citynews_van_password: cityNewsVanPassword,
         globalnews_bc_password: globalNewsBcPassword,
         thethunderbird_password: theThunderbirdPassword,
+        georgiastraight_password: georgiaStraightPassword,
       },
     },
   ]
