@@ -4,8 +4,6 @@
 
 CLUSTER=$(pwd | sed 's,^.*\/,,' | sed 's,-.*,,')
 
-echo GITHUB_PAT $GITHUB_PAT
-
 NS=gkgv6
 
 kubectl --context $CLUSTER create ns $NS

@@ -6,7 +6,6 @@
 . .env
 
 SSH_RSA_PUB=$(cat ~/.ssh/id_rsa.pub)
-echo GITHUB_PAT $GITHUB_PAT
 
 CLUSTER=ryzen9
 

@@ -9,8 +9,6 @@ NS=gkgv6
 
 kubectl --context $CLUSTER create ns $NS
 
-echo GITHUB_PAT $GITHUB_PAT
-
 argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick --password $GITHUB_PAT --upsert
 
 IPFS_PEER_ID_BASE64=$(echo -n $IPFS_PEER_ID | base64)

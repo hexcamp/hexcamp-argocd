@@ -8,7 +8,6 @@ CLUSTER_RESTAPI_BASICAUTHCREDENTIALS_BASE64=$(echo -n $CLUSTER_RESTAPI_BASICAUTH
 
 NS=gkgv6
 
-echo GITHUB_PAT $GITHUB_PAT
 argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick --password $GITHUB_PAT --upsert
 
 #argocd app create ipfs-seahex-$NS-$CLUSTER-secrets \

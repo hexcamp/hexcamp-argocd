@@ -4,8 +4,6 @@
 
 CLUSTER=ryzen9
 
-echo GITHUB_PAT $GITHUB_PAT
-
 NS=ikgrw
 
 kubectl --context $CLUSTER create ns $NS

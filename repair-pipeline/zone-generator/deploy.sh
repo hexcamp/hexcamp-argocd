@@ -4,8 +4,6 @@
 
 CLUSTER=ryzen9
 
-echo GITHUB_PAT $GITHUB_PAT
-
 kubectl --context $CLUSTER create ns repair
 
 argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick --password $GITHUB_PAT --upsert

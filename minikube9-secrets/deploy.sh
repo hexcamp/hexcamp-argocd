@@ -4,8 +4,6 @@
 
 CLUSTER=$(pwd | sed 's,^.*\/,,' | sed 's,-.*,,')
 
-echo GITHUB_PAT $GITHUB_PAT
-
 argocd repo add https://github.com/hexcamp/hexcamp-argocd.git --username jimpick --password $GITHUB_PAT --upsert
 
 RCLONE_PASSWORD_BASE64=$(echo -n $RCLONE_PASSWORD | base64)
