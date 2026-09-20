@@ -62,6 +62,9 @@ spec:
     - name: bundles-islandhex
       mountPath: /bundles/islandhex
       readOnly: true
+    - name: bundles-cdmxhex
+      mountPath: /bundles/cdmxhex
+      readOnly: true
     ports:
     - hostPort: 53
       containerPort: 53
@@ -113,6 +116,10 @@ spec:
   - name: bundles-islandhex
     persistentVolumeClaim:
       claimName: coredns-data-islandhex
+      readOnly: true
+  - name: bundles-cdmxhex
+    persistentVolumeClaim:
+      claimName: coredns-data-cdmxhex
       readOnly: true
 ---
 apiVersion: serving.knative.dev/v1
