@@ -47,4 +47,8 @@
     region: 'islandhex',
     workingDir: '/data'
   },
+  {
+    region: 'cdmxhex',
+    workingDir: '/data'
+  },
 ]
