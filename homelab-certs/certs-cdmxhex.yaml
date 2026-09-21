@@ -1,0 +1,33 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cdmxhex-bare
+spec:
+  commonName: "cdmxhex.org"
+  secretName: cdmxhex-bare-cert
+  dnsNames:
+    - "cdmxhex.org"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: ""
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: cdmxhex-wildcard
+spec:
+  commonName: "*.cdmxhex.org"
+  secretName: cdmxhex-wildcard-cert
+  dnsNames:
+    - "*.cdmxhex.org"
+  issuerRef:
+    name: letsencrypt-prod-dns
+    kind: ClusterIssuer
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: ""
